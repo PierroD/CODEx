@@ -16,3 +16,6 @@ packages
 
 #ingore ini files (.ini)
 *.ini
+
+#ignore debug
+./bin/Debug
