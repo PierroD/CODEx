@@ -31,23 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.CodexElipse = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pnl_left = new Guna.UI.WinForms.GunaLinePanel();
+            this.pbox_heart = new Guna.UI.WinForms.GunaPictureBox();
+            this.lbl_byLINDRA = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_madeWith = new Guna.UI.WinForms.GunaLabel();
             this.btn_Search = new Guna.UI.WinForms.GunaButton();
             this.btn_Settings = new Guna.UI.WinForms.GunaButton();
             this.btn_Home = new Guna.UI.WinForms.GunaButton();
             this.lbl_title = new Guna.UI.WinForms.GunaLabel();
+            this.pnl_sidebar = new Guna.UI.WinForms.GunaGradient2Panel();
             this.pnl_topRight = new Guna.UI.WinForms.GunaElipsePanel();
             this.btn_minimize = new Guna.UI.WinForms.GunaControlBox();
             this.btn_close = new Guna.UI.WinForms.GunaControlBox();
             this.pnl_topMiddle = new Guna.UI.WinForms.GunaPanel();
+            this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.pbox_top = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_top = new Guna.UI.WinForms.GunaLabel();
             this.drag_topMiddle = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.drag_topRight = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.drag_left = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.pnl_main = new Guna.UI.WinForms.GunaPanel();
-            this.pnl_sidebar = new Guna.UI.WinForms.GunaGradient2Panel();
-            this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.pnl_left.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).BeginInit();
             this.pnl_topRight.SuspendLayout();
             this.pnl_topMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_top)).BeginInit();
@@ -61,6 +65,9 @@
             // pnl_left
             // 
             this.pnl_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.pnl_left.Controls.Add(this.pbox_heart);
+            this.pnl_left.Controls.Add(this.lbl_byLINDRA);
+            this.pnl_left.Controls.Add(this.lbl_madeWith);
             this.pnl_left.Controls.Add(this.btn_Search);
             this.pnl_left.Controls.Add(this.btn_Settings);
             this.pnl_left.Controls.Add(this.btn_Home);
@@ -73,6 +80,39 @@
             this.pnl_left.Name = "pnl_left";
             this.pnl_left.Size = new System.Drawing.Size(220, 570);
             this.pnl_left.TabIndex = 1;
+            // 
+            // pbox_heart
+            // 
+            this.pbox_heart.BaseColor = System.Drawing.Color.White;
+            this.pbox_heart.Image = global::CODEX.Properties.Resources.heart;
+            this.pbox_heart.Location = new System.Drawing.Point(95, 535);
+            this.pbox_heart.Name = "pbox_heart";
+            this.pbox_heart.Size = new System.Drawing.Size(20, 20);
+            this.pbox_heart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_heart.TabIndex = 19;
+            this.pbox_heart.TabStop = false;
+            // 
+            // lbl_byLINDRA
+            // 
+            this.lbl_byLINDRA.AutoSize = true;
+            this.lbl_byLINDRA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_byLINDRA.ForeColor = System.Drawing.Color.White;
+            this.lbl_byLINDRA.Location = new System.Drawing.Point(120, 535);
+            this.lbl_byLINDRA.Name = "lbl_byLINDRA";
+            this.lbl_byLINDRA.Size = new System.Drawing.Size(75, 17);
+            this.lbl_byLINDRA.TabIndex = 18;
+            this.lbl_byLINDRA.Text = "by LINDRA";
+            // 
+            // lbl_madeWith
+            // 
+            this.lbl_madeWith.AutoSize = true;
+            this.lbl_madeWith.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_madeWith.ForeColor = System.Drawing.Color.White;
+            this.lbl_madeWith.Location = new System.Drawing.Point(23, 535);
+            this.lbl_madeWith.Name = "lbl_madeWith";
+            this.lbl_madeWith.Size = new System.Drawing.Size(73, 17);
+            this.lbl_madeWith.TabIndex = 17;
+            this.lbl_madeWith.Text = "Made with";
             // 
             // btn_Search
             // 
@@ -178,6 +218,18 @@
             this.lbl_title.Text = "CODEX";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnl_sidebar
+            // 
+            this.pnl_sidebar.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_sidebar.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.pnl_sidebar.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.pnl_sidebar.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.pnl_sidebar.Location = new System.Drawing.Point(11, 200);
+            this.pnl_sidebar.Name = "pnl_sidebar";
+            this.pnl_sidebar.Radius = 13;
+            this.pnl_sidebar.Size = new System.Drawing.Size(50, 50);
+            this.pnl_sidebar.TabIndex = 16;
+            // 
             // pnl_topRight
             // 
             this.pnl_topRight.BackColor = System.Drawing.Color.Transparent;
@@ -231,6 +283,17 @@
             this.pnl_topMiddle.Size = new System.Drawing.Size(485, 56);
             this.pnl_topMiddle.TabIndex = 3;
             // 
+            // gunaGradient2Panel1
+            // 
+            this.gunaGradient2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.gunaGradient2Panel1.Location = new System.Drawing.Point(21, 44);
+            this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
+            this.gunaGradient2Panel1.Radius = 2;
+            this.gunaGradient2Panel1.Size = new System.Drawing.Size(120, 4);
+            this.gunaGradient2Panel1.TabIndex = 17;
+            // 
             // pbox_top
             // 
             this.pbox_top.BaseColor = System.Drawing.Color.White;
@@ -271,29 +334,6 @@
             this.pnl_main.Size = new System.Drawing.Size(751, 512);
             this.pnl_main.TabIndex = 4;
             // 
-            // pnl_sidebar
-            // 
-            this.pnl_sidebar.BackColor = System.Drawing.Color.Transparent;
-            this.pnl_sidebar.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.pnl_sidebar.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.pnl_sidebar.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.pnl_sidebar.Location = new System.Drawing.Point(11, 200);
-            this.pnl_sidebar.Name = "pnl_sidebar";
-            this.pnl_sidebar.Radius = 13;
-            this.pnl_sidebar.Size = new System.Drawing.Size(50, 50);
-            this.pnl_sidebar.TabIndex = 16;
-            // 
-            // gunaGradient2Panel1
-            // 
-            this.gunaGradient2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.gunaGradient2Panel1.Location = new System.Drawing.Point(21, 44);
-            this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
-            this.gunaGradient2Panel1.Radius = 2;
-            this.gunaGradient2Panel1.Size = new System.Drawing.Size(120, 4);
-            this.gunaGradient2Panel1.TabIndex = 17;
-            // 
             // frm_CODEX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +349,8 @@
             this.Text = "CODEX";
             this.Load += new System.EventHandler(this.CODEX_Load);
             this.pnl_left.ResumeLayout(false);
+            this.pnl_left.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).EndInit();
             this.pnl_topRight.ResumeLayout(false);
             this.pnl_topMiddle.ResumeLayout(false);
             this.pnl_topMiddle.PerformLayout();
@@ -337,6 +379,9 @@
         private Guna.UI.WinForms.GunaLabel lbl_top;
         private Guna.UI.WinForms.GunaGradient2Panel pnl_sidebar;
         private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel1;
+        private Guna.UI.WinForms.GunaPictureBox pbox_heart;
+        private Guna.UI.WinForms.GunaLabel lbl_byLINDRA;
+        private Guna.UI.WinForms.GunaLabel lbl_madeWith;
     }
 }
 

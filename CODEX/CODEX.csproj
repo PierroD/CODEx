@@ -37,6 +37,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,12 +61,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\INIFile.cs" />
+    <Compile Include="Utils\LoadingAnimation.cs" />
+    <Compile Include="Utils\Loading\uc_Loading.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\Loading\uc_Loading.Designer.cs">
+      <DependentUpon>uc_Loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\SwitchUserControl.cs" />
     <Compile Include="Views\Home\uc_Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Home\uc_Home.Designer.cs">
       <DependentUpon>uc_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Search\uc_Search.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Search\uc_Search.Designer.cs">
+      <DependentUpon>uc_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\uc_Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Settings\uc_Settings.Designer.cs">
+      <DependentUpon>uc_Settings.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frm_CODEX.resx">
       <DependentUpon>frm_CODEX.cs</DependentUpon>
@@ -78,9 +101,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Utils\Loading\uc_Loading.resx">
+      <DependentUpon>uc_Loading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\uc_Home.resx">
       <DependentUpon>uc_Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Search\uc_Search.resx">
+      <DependentUpon>uc_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Settings\uc_Settings.resx">
+      <DependentUpon>uc_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,6 +147,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

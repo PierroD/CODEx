@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SwitchUserControl
 {
-    class SwitchUserControl
+    public static class SwitchUserControl
     {
         public static void Switch(Panel pnl, UserControl uc)
         {
@@ -22,3 +23,4 @@ namespace SwitchUserControl
         }
     }
 }
+
