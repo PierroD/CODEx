@@ -32,8 +32,9 @@
             this.cbox_SelectedDvarList = new Guna.UI.WinForms.GunaComboBox();
             this.gunaSeparator2 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_titleSelectedDvarList = new Guna.UI.WinForms.GunaLabel();
-            this.pnl_toogles = new System.Windows.Forms.FlowLayoutPanel();
-            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
+            this.pnl_dvars = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_search = new Guna.UI.WinForms.GunaCircleButton();
+            this.lbl_result = new Guna.UI.WinForms.GunaLabel();
             this.SuspendLayout();
             // 
             // tbox_searchBar
@@ -93,46 +94,60 @@
             this.lbl_titleSelectedDvarList.TabIndex = 16;
             this.lbl_titleSelectedDvarList.Text = "Selected DVAR list";
             // 
-            // pnl_toogles
+            // pnl_dvars
             // 
-            this.pnl_toogles.Location = new System.Drawing.Point(13, 82);
-            this.pnl_toogles.Name = "pnl_toogles";
-            this.pnl_toogles.Size = new System.Drawing.Size(722, 415);
-            this.pnl_toogles.TabIndex = 18;
+            this.pnl_dvars.AutoScroll = true;
+            this.pnl_dvars.Location = new System.Drawing.Point(13, 82);
+            this.pnl_dvars.Name = "pnl_dvars";
+            this.pnl_dvars.Size = new System.Drawing.Size(722, 408);
+            this.pnl_dvars.TabIndex = 18;
             // 
-            // gunaCircleButton1
+            // btn_search
             // 
-            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton1.AnimationSpeed = 0.03F;
-            this.gunaCircleButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.Image = global::CODEX.Properties.Resources.search_off;
-            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(71, 41);
-            this.gunaCircleButton1.Name = "gunaCircleButton1";
-            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnHoverImage = null;
-            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnPressedDepth = 10;
-            this.gunaCircleButton1.Size = new System.Drawing.Size(35, 35);
-            this.gunaCircleButton1.TabIndex = 1;
+            this.btn_search.AnimationHoverSpeed = 0.07F;
+            this.btn_search.AnimationSpeed = 0.03F;
+            this.btn_search.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_search.BorderColor = System.Drawing.Color.Black;
+            this.btn_search.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_search.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_search.ForeColor = System.Drawing.Color.White;
+            this.btn_search.Image = global::CODEX.Properties.Resources.search_off;
+            this.btn_search.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_search.Location = new System.Drawing.Point(71, 41);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_search.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_search.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_search.OnHoverImage = null;
+            this.btn_search.OnPressedColor = System.Drawing.Color.White;
+            this.btn_search.OnPressedDepth = 10;
+            this.btn_search.Size = new System.Drawing.Size(35, 35);
+            this.btn_search.TabIndex = 1;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // lbl_result
+            // 
+            this.lbl_result.AutoSize = true;
+            this.lbl_result.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_result.ForeColor = System.Drawing.Color.White;
+            this.lbl_result.Location = new System.Drawing.Point(10, 493);
+            this.lbl_result.Name = "lbl_result";
+            this.lbl_result.Size = new System.Drawing.Size(48, 15);
+            this.lbl_result.TabIndex = 19;
+            this.lbl_result.Text = "Result : ";
             // 
             // uc_Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.Controls.Add(this.pnl_toogles);
+            this.Controls.Add(this.lbl_result);
+            this.Controls.Add(this.pnl_dvars);
             this.Controls.Add(this.gunaSeparator2);
             this.Controls.Add(this.lbl_titleSelectedDvarList);
             this.Controls.Add(this.cbox_SelectedDvarList);
-            this.Controls.Add(this.gunaCircleButton1);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.tbox_searchBar);
             this.Name = "uc_Search";
             this.Size = new System.Drawing.Size(751, 512);
@@ -145,10 +160,11 @@
         #endregion
 
         private Guna.UI.WinForms.GunaLineTextBox tbox_searchBar;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
+        private Guna.UI.WinForms.GunaCircleButton btn_search;
         private Guna.UI.WinForms.GunaComboBox cbox_SelectedDvarList;
         private Guna.UI.WinForms.GunaSeparator gunaSeparator2;
         private Guna.UI.WinForms.GunaLabel lbl_titleSelectedDvarList;
-        private System.Windows.Forms.FlowLayoutPanel pnl_toogles;
+        private System.Windows.Forms.FlowLayoutPanel pnl_dvars;
+        private Guna.UI.WinForms.GunaLabel lbl_result;
     }
 }

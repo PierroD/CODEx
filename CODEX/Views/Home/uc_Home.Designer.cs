@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbox_console = new System.Windows.Forms.TextBox();
             this.btn_saveConfigFile = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_loadConfig = new Guna.UI.WinForms.GunaGradientButton();
             this.tbox_configName = new Guna.UI.WinForms.GunaTextBox();
             this.cbox_config = new Guna.UI.WinForms.GunaComboBox();
-            this.lbl_configAddToogles = new Guna.UI.WinForms.GunaLabel();
-            this.pnl_toogles = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbl_configAddMacro = new Guna.UI.WinForms.GunaLabel();
+            this.pnl_macros = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_sendConsole = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaSeparator1 = new Guna.UI.WinForms.GunaSeparator();
-            this.gunaSeparator2 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_gamefound = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_addToogles = new Guna.UI.WinForms.GunaGradientButton();
+            this.btn_addMacro = new Guna.UI.WinForms.GunaGradientButton();
+            this.ni_home = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cbox_keys = new Guna.UI.WinForms.GunaComboBox();
+            this.lbl_keys = new Guna.UI.WinForms.GunaLabel();
             this.SuspendLayout();
             // 
             // tbox_console
@@ -78,12 +81,13 @@
             this.btn_saveConfigFile.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_saveConfigFile.OnHoverImage = null;
             this.btn_saveConfigFile.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_saveConfigFile.OnPressedDepth = 10;
+            this.btn_saveConfigFile.OnPressedDepth = 25;
             this.btn_saveConfigFile.Radius = 20;
             this.btn_saveConfigFile.Size = new System.Drawing.Size(94, 40);
             this.btn_saveConfigFile.TabIndex = 6;
             this.btn_saveConfigFile.Text = "SAVE";
             this.btn_saveConfigFile.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_saveConfigFile.Click += new System.EventHandler(this.btn_saveConfigFile_Click);
             // 
             // btn_loadConfig
             // 
@@ -133,7 +137,7 @@
             this.tbox_configName.SelectedText = "";
             this.tbox_configName.Size = new System.Drawing.Size(175, 40);
             this.tbox_configName.TabIndex = 8;
-            this.tbox_configName.Text = "FileName";
+            this.tbox_configName.Text = "Config name";
             // 
             // cbox_config
             // 
@@ -151,26 +155,28 @@
             this.cbox_config.Name = "cbox_config";
             this.cbox_config.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.cbox_config.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbox_config.Size = new System.Drawing.Size(194, 26);
+            this.cbox_config.Size = new System.Drawing.Size(178, 26);
             this.cbox_config.TabIndex = 11;
+            this.cbox_config.Click += new System.EventHandler(this.cbox_config_Click);
             // 
-            // lbl_configAddToogles
+            // lbl_configAddMacro
             // 
-            this.lbl_configAddToogles.AutoSize = true;
-            this.lbl_configAddToogles.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lbl_configAddToogles.ForeColor = System.Drawing.Color.White;
-            this.lbl_configAddToogles.Location = new System.Drawing.Point(462, 123);
-            this.lbl_configAddToogles.Name = "lbl_configAddToogles";
-            this.lbl_configAddToogles.Size = new System.Drawing.Size(151, 15);
-            this.lbl_configAddToogles.TabIndex = 13;
-            this.lbl_configAddToogles.Text = "Add a config to the toogles";
+            this.lbl_configAddMacro.AutoSize = true;
+            this.lbl_configAddMacro.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_configAddMacro.ForeColor = System.Drawing.Color.White;
+            this.lbl_configAddMacro.Location = new System.Drawing.Point(462, 123);
+            this.lbl_configAddMacro.Name = "lbl_configAddMacro";
+            this.lbl_configAddMacro.Size = new System.Drawing.Size(135, 15);
+            this.lbl_configAddMacro.TabIndex = 13;
+            this.lbl_configAddMacro.Text = "Add a Macro to a config";
             // 
-            // pnl_toogles
+            // pnl_macros
             // 
-            this.pnl_toogles.Location = new System.Drawing.Point(465, 180);
-            this.pnl_toogles.Name = "pnl_toogles";
-            this.pnl_toogles.Size = new System.Drawing.Size(280, 230);
-            this.pnl_toogles.TabIndex = 14;
+            this.pnl_macros.AutoScroll = true;
+            this.pnl_macros.Location = new System.Drawing.Point(465, 200);
+            this.pnl_macros.Name = "pnl_macros";
+            this.pnl_macros.Size = new System.Drawing.Size(280, 295);
+            this.pnl_macros.TabIndex = 14;
             // 
             // btn_sendConsole
             // 
@@ -194,7 +200,7 @@
             this.btn_sendConsole.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_sendConsole.OnHoverImage = null;
             this.btn_sendConsole.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_sendConsole.OnPressedDepth = 10;
+            this.btn_sendConsole.OnPressedDepth = 25;
             this.btn_sendConsole.Radius = 20;
             this.btn_sendConsole.Size = new System.Drawing.Size(94, 40);
             this.btn_sendConsole.TabIndex = 15;
@@ -209,20 +215,12 @@
             this.gunaSeparator1.Size = new System.Drawing.Size(292, 10);
             this.gunaSeparator1.TabIndex = 16;
             // 
-            // gunaSeparator2
-            // 
-            this.gunaSeparator2.LineColor = System.Drawing.Color.Silver;
-            this.gunaSeparator2.Location = new System.Drawing.Point(456, 416);
-            this.gunaSeparator2.Name = "gunaSeparator2";
-            this.gunaSeparator2.Size = new System.Drawing.Size(292, 10);
-            this.gunaSeparator2.TabIndex = 17;
-            // 
             // lbl_gamefound
             // 
             this.lbl_gamefound.AutoSize = true;
             this.lbl_gamefound.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbl_gamefound.ForeColor = System.Drawing.Color.White;
-            this.lbl_gamefound.Location = new System.Drawing.Point(459, 434);
+            this.lbl_gamefound.Location = new System.Drawing.Point(263, 455);
             this.lbl_gamefound.Name = "lbl_gamefound";
             this.lbl_gamefound.Size = new System.Drawing.Size(143, 15);
             this.lbl_gamefound.TabIndex = 18;
@@ -233,54 +231,93 @@
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(470, 455);
+            this.gunaLabel1.Location = new System.Drawing.Point(274, 476);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(167, 15);
             this.gunaLabel1.TabIndex = 19;
             this.gunaLabel1.Text = "Call of Duty Modern Warfare 3";
             // 
-            // btn_addToogles
+            // btn_addMacro
             // 
-            this.btn_addToogles.AnimationHoverSpeed = 0.07F;
-            this.btn_addToogles.AnimationSpeed = 0.03F;
-            this.btn_addToogles.BackColor = System.Drawing.Color.Transparent;
-            this.btn_addToogles.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.btn_addToogles.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.btn_addToogles.BorderColor = System.Drawing.Color.Black;
-            this.btn_addToogles.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_addToogles.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_addToogles.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_addToogles.ForeColor = System.Drawing.Color.White;
-            this.btn_addToogles.Image = global::CODEX.Properties.Resources.add;
-            this.btn_addToogles.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btn_addToogles.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_addToogles.Location = new System.Drawing.Point(662, 134);
-            this.btn_addToogles.Name = "btn_addToogles";
-            this.btn_addToogles.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.btn_addToogles.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.btn_addToogles.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_addToogles.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_addToogles.OnHoverImage = null;
-            this.btn_addToogles.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_addToogles.OnPressedDepth = 10;
-            this.btn_addToogles.Radius = 20;
-            this.btn_addToogles.Size = new System.Drawing.Size(83, 40);
-            this.btn_addToogles.TabIndex = 12;
-            this.btn_addToogles.Text = "ADD";
+            this.btn_addMacro.AnimationHoverSpeed = 0.07F;
+            this.btn_addMacro.AnimationSpeed = 0.03F;
+            this.btn_addMacro.BackColor = System.Drawing.Color.Transparent;
+            this.btn_addMacro.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.btn_addMacro.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.btn_addMacro.BorderColor = System.Drawing.Color.Black;
+            this.btn_addMacro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_addMacro.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_addMacro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_addMacro.ForeColor = System.Drawing.Color.White;
+            this.btn_addMacro.Image = global::CODEX.Properties.Resources.add;
+            this.btn_addMacro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btn_addMacro.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_addMacro.Location = new System.Drawing.Point(646, 134);
+            this.btn_addMacro.Name = "btn_addMacro";
+            this.btn_addMacro.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.btn_addMacro.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.btn_addMacro.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_addMacro.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_addMacro.OnHoverImage = null;
+            this.btn_addMacro.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_addMacro.OnPressedDepth = 25;
+            this.btn_addMacro.Radius = 20;
+            this.btn_addMacro.Size = new System.Drawing.Size(94, 40);
+            this.btn_addMacro.TabIndex = 12;
+            this.btn_addMacro.Text = "ADD";
+            this.btn_addMacro.Click += new System.EventHandler(this.btn_addMacro_Click);
+            // 
+            // ni_home
+            // 
+            this.ni_home.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ni_home.Text = "CODEx";
+            this.ni_home.Visible = true;
+            // 
+            // cbox_keys
+            // 
+            this.cbox_keys.BackColor = System.Drawing.Color.Transparent;
+            this.cbox_keys.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.cbox_keys.BorderColor = System.Drawing.Color.Silver;
+            this.cbox_keys.BorderSize = 1;
+            this.cbox_keys.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbox_keys.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_keys.FocusedColor = System.Drawing.Color.Empty;
+            this.cbox_keys.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbox_keys.ForeColor = System.Drawing.Color.White;
+            this.cbox_keys.FormattingEnabled = true;
+            this.cbox_keys.Location = new System.Drawing.Point(499, 168);
+            this.cbox_keys.Name = "cbox_keys";
+            this.cbox_keys.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.cbox_keys.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbox_keys.Size = new System.Drawing.Size(141, 26);
+            this.cbox_keys.TabIndex = 20;
+            this.cbox_keys.Click += new System.EventHandler(this.cbox_keys_Click);
+            // 
+            // lbl_keys
+            // 
+            this.lbl_keys.AutoSize = true;
+            this.lbl_keys.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_keys.ForeColor = System.Drawing.Color.White;
+            this.lbl_keys.Location = new System.Drawing.Point(462, 173);
+            this.lbl_keys.Name = "lbl_keys";
+            this.lbl_keys.Size = new System.Drawing.Size(31, 15);
+            this.lbl_keys.TabIndex = 21;
+            this.lbl_keys.Text = "Keys";
             // 
             // uc_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.lbl_keys);
+            this.Controls.Add(this.cbox_keys);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.lbl_gamefound);
-            this.Controls.Add(this.gunaSeparator2);
             this.Controls.Add(this.gunaSeparator1);
             this.Controls.Add(this.btn_sendConsole);
-            this.Controls.Add(this.pnl_toogles);
-            this.Controls.Add(this.lbl_configAddToogles);
-            this.Controls.Add(this.btn_addToogles);
+            this.Controls.Add(this.pnl_macros);
+            this.Controls.Add(this.lbl_configAddMacro);
+            this.Controls.Add(this.btn_addMacro);
             this.Controls.Add(this.cbox_config);
             this.Controls.Add(this.tbox_configName);
             this.Controls.Add(this.btn_loadConfig);
@@ -300,13 +337,15 @@
         private Guna.UI.WinForms.GunaGradientButton btn_loadConfig;
         private Guna.UI.WinForms.GunaTextBox tbox_configName;
         private Guna.UI.WinForms.GunaComboBox cbox_config;
-        private Guna.UI.WinForms.GunaGradientButton btn_addToogles;
-        private Guna.UI.WinForms.GunaLabel lbl_configAddToogles;
-        private System.Windows.Forms.FlowLayoutPanel pnl_toogles;
+        private Guna.UI.WinForms.GunaGradientButton btn_addMacro;
+        private Guna.UI.WinForms.GunaLabel lbl_configAddMacro;
+        private System.Windows.Forms.FlowLayoutPanel pnl_macros;
         private Guna.UI.WinForms.GunaGradientButton btn_sendConsole;
         private Guna.UI.WinForms.GunaSeparator gunaSeparator1;
-        private Guna.UI.WinForms.GunaSeparator gunaSeparator2;
         private Guna.UI.WinForms.GunaLabel lbl_gamefound;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        public System.Windows.Forms.NotifyIcon ni_home;
+        private Guna.UI.WinForms.GunaComboBox cbox_keys;
+        private Guna.UI.WinForms.GunaLabel lbl_keys;
     }
 }

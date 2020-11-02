@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using CODEX.Views.Search.SearchModel;
 
 namespace CODEX.Views.Search
 {
@@ -23,7 +24,10 @@ namespace CODEX.Views.Search
         private DVARList DvarLists;
         private void uc_Search_Load(object sender, EventArgs e)
         {
+            LoadSelectedDvarList();
             DvarLists = LoadDvarLists();
+            if (cbox_SelectedDvarList.Text != String.Empty)
+                SearchDvars("");
         }
 
         #region LoadDvarLists
@@ -64,7 +68,20 @@ namespace CODEX.Views.Search
         }
         #endregion
 
-        #region search bar
+        #region LoadSelectedDvarList
+        void LoadSelectedDvarList()
+        {
+            string[] games = Directory.GetDirectories(JSONPath);
+            foreach(string game in games)
+            {
+                cbox_SelectedDvarList.Items.Add(new DirectoryInfo(game).Name);
+            }
+            if (games.Count() > 0)
+                cbox_SelectedDvarList.SelectedIndex = 0;
+        }
+        #endregion
+
+        #region search bar (Enter/Leave/KeyPress)
         private void tbox_searchBar_Enter(object sender, EventArgs e)
         {
             if (tbox_searchBar.Text == "Search . . .")
@@ -85,15 +102,33 @@ namespace CODEX.Views.Search
 
         #endregion
 
-        #region Search
+        #region SearchDvars
         void SearchDvars(string dvar)
         {
-            Game searchingGame = DvarLists.Games.Where(g => g.GameName == cbox_SelectedDvarList.Text).FirstOrDefault();
-
+            pnl_dvars.Controls.Clear();
+            Game game = DvarLists.Games.Where(g => g.GameName == cbox_SelectedDvarList.Text).FirstOrDefault();
+            List<Command> commands = game.Commands.Where(c => c.Content.Contains(dvar) || c.Description.Contains(dvar)).ToList();
+            foreach (Command command in commands)
+            {
+                pnl_dvars.Controls.Add(new uc_SearchModel
+                {
+                    dvarName = command.Content,
+                    dvarDescription = command.Description
+                });
+            }
+            lbl_result.Text = $"Result : {commands.Count()}/{game.Commands.Count()}";
         }
         #endregion
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            if (cbox_SelectedDvarList.Text != String.Empty)
+                SearchDvars(tbox_searchBar.Text);
+            if (tbox_searchBar.Text == "Search . . .")
+                SearchDvars("");
+        }
     }
-    #region classes
+    #region DVARList classes
     public class DVARList
     {
         public List<Game> Games { get; set; }

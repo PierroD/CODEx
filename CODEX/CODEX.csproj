@@ -70,11 +70,23 @@
       <DependentUpon>uc_Loading.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SwitchUserControl.cs" />
+    <Compile Include="Views\Home\MacroModel\uc_Macro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Home\MacroModel\uc_Macro.Designer.cs">
+      <DependentUpon>uc_Macro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\uc_Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Home\uc_Home.Designer.cs">
       <DependentUpon>uc_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Search\SearchModel\uc_SearchModel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Search\SearchModel\uc_SearchModel.Designer.cs">
+      <DependentUpon>uc_SearchModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Search\uc_Search.cs">
       <SubType>UserControl</SubType>
@@ -104,8 +116,14 @@
     <EmbeddedResource Include="Utils\Loading\uc_Loading.resx">
       <DependentUpon>uc_Loading.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\MacroModel\uc_Macro.resx">
+      <DependentUpon>uc_Macro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\uc_Home.resx">
       <DependentUpon>uc_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Search\SearchModel\uc_SearchModel.resx">
+      <DependentUpon>uc_SearchModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Search\uc_Search.resx">
       <DependentUpon>uc_Search.cs</DependentUpon>
@@ -156,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

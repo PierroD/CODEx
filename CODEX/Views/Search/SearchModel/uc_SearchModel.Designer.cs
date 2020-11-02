@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pnl_background = new Guna.UI.WinForms.GunaLinePanel();
-            this.lbl_dvarName = new Guna.UI.WinForms.GunaLabel();
-            this.lbl_dvarDescription = new Guna.UI.WinForms.GunaLabel();
             this.pbox_copyDvar = new Guna.UI.WinForms.GunaPictureBox();
+            this.lbl_dvarDescription = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_dvarName = new Guna.UI.WinForms.GunaLabel();
             this.pnl_background.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_copyDvar)).BeginInit();
             this.SuspendLayout();
@@ -53,38 +53,40 @@
             this.pnl_background.LineTop = 1;
             this.pnl_background.Location = new System.Drawing.Point(0, 0);
             this.pnl_background.Name = "pnl_background";
-            this.pnl_background.Size = new System.Drawing.Size(722, 80);
+            this.pnl_background.Size = new System.Drawing.Size(690, 60);
             this.pnl_background.TabIndex = 0;
             // 
-            // lbl_dvarName
+            // pbox_copyDvar
             // 
-            this.lbl_dvarName.AutoSize = true;
-            this.lbl_dvarName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dvarName.Location = new System.Drawing.Point(12, 13);
-            this.lbl_dvarName.Name = "lbl_dvarName";
-            this.lbl_dvarName.Size = new System.Drawing.Size(50, 20);
-            this.lbl_dvarName.TabIndex = 0;
-            this.lbl_dvarName.Text = "Name";
+            this.pbox_copyDvar.BaseColor = System.Drawing.Color.White;
+            this.pbox_copyDvar.Image = global::CODEX.Properties.Resources.copy;
+            this.pbox_copyDvar.Location = new System.Drawing.Point(644, 15);
+            this.pbox_copyDvar.Name = "pbox_copyDvar";
+            this.pbox_copyDvar.Size = new System.Drawing.Size(30, 30);
+            this.pbox_copyDvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_copyDvar.TabIndex = 2;
+            this.pbox_copyDvar.TabStop = false;
             // 
             // lbl_dvarDescription
             // 
             this.lbl_dvarDescription.AutoSize = true;
             this.lbl_dvarDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbl_dvarDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.lbl_dvarDescription.Location = new System.Drawing.Point(13, 43);
+            this.lbl_dvarDescription.Location = new System.Drawing.Point(13, 36);
             this.lbl_dvarDescription.Name = "lbl_dvarDescription";
             this.lbl_dvarDescription.Size = new System.Drawing.Size(67, 15);
             this.lbl_dvarDescription.TabIndex = 1;
             this.lbl_dvarDescription.Text = "Description";
             // 
-            // pbox_copyDvar
+            // lbl_dvarName
             // 
-            this.pbox_copyDvar.BaseColor = System.Drawing.Color.White;
-            this.pbox_copyDvar.Location = new System.Drawing.Point(666, 25);
-            this.pbox_copyDvar.Name = "pbox_copyDvar";
-            this.pbox_copyDvar.Size = new System.Drawing.Size(30, 30);
-            this.pbox_copyDvar.TabIndex = 2;
-            this.pbox_copyDvar.TabStop = false;
+            this.lbl_dvarName.AutoSize = true;
+            this.lbl_dvarName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_dvarName.Location = new System.Drawing.Point(12, 9);
+            this.lbl_dvarName.Name = "lbl_dvarName";
+            this.lbl_dvarName.Size = new System.Drawing.Size(50, 20);
+            this.lbl_dvarName.TabIndex = 0;
+            this.lbl_dvarName.Text = "Name";
             // 
             // uc_SearchModel
             // 
@@ -92,7 +94,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnl_background);
             this.Name = "uc_SearchModel";
-            this.Size = new System.Drawing.Size(722, 80);
+            this.Size = new System.Drawing.Size(690, 60);
+            this.Load += new System.EventHandler(this.uc_SearchModel_Load);
             this.pnl_background.ResumeLayout(false);
             this.pnl_background.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_copyDvar)).EndInit();

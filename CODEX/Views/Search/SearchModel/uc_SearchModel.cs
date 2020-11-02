@@ -16,5 +16,14 @@ namespace CODEX.Views.Search.SearchModel
         {
             InitializeComponent();
         }
+
+        public string dvarName { get; set; }
+        public string dvarDescription { get; set; }
+
+        private void uc_SearchModel_Load(object sender, EventArgs e)
+        {
+            lbl_dvarName.Text = dvarName;
+            lbl_dvarDescription.Text = dvarDescription;
+        }
     }
 }

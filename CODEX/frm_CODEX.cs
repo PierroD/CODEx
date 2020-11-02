@@ -23,8 +23,8 @@ namespace CODEX
 
         private void CODEX_Load(object sender, EventArgs e)
         {
-            loadingAnimation();
-             // btn_Home.PerformClick();
+           // loadingAnimation();
+           btn_Home.PerformClick();
         }
 
         #region sidebar
