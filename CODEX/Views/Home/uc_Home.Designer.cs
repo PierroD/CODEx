@@ -40,10 +40,14 @@
             this.gunaSeparator1 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_gamefound = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_addMacro = new Guna.UI.WinForms.GunaGradientButton();
             this.ni_home = new System.Windows.Forms.NotifyIcon(this.components);
             this.cbox_keys = new Guna.UI.WinForms.GunaComboBox();
             this.lbl_keys = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_configName = new Guna.UI.WinForms.GunaLabel();
+            this.ofd_home = new System.Windows.Forms.OpenFileDialog();
+            this.btn_clear = new Guna.UI.WinForms.GunaGradientButton();
+            this.btn_addMacro = new Guna.UI.WinForms.GunaGradientButton();
+            this.timer_macro = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // tbox_console
@@ -118,6 +122,7 @@
             this.btn_loadConfig.TabIndex = 7;
             this.btn_loadConfig.Text = "LOAD";
             this.btn_loadConfig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_loadConfig.Click += new System.EventHandler(this.btn_loadConfig_Click);
             // 
             // tbox_configName
             // 
@@ -138,6 +143,9 @@
             this.tbox_configName.Size = new System.Drawing.Size(175, 40);
             this.tbox_configName.TabIndex = 8;
             this.tbox_configName.Text = "Config name";
+            this.tbox_configName.Enter += new System.EventHandler(this.tbox_configName_Enter);
+            this.tbox_configName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbox_configName_KeyPress);
+            this.tbox_configName.Leave += new System.EventHandler(this.tbox_configName_Leave);
             // 
             // cbox_config
             // 
@@ -237,36 +245,6 @@
             this.gunaLabel1.TabIndex = 19;
             this.gunaLabel1.Text = "Call of Duty Modern Warfare 3";
             // 
-            // btn_addMacro
-            // 
-            this.btn_addMacro.AnimationHoverSpeed = 0.07F;
-            this.btn_addMacro.AnimationSpeed = 0.03F;
-            this.btn_addMacro.BackColor = System.Drawing.Color.Transparent;
-            this.btn_addMacro.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.btn_addMacro.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.btn_addMacro.BorderColor = System.Drawing.Color.Black;
-            this.btn_addMacro.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_addMacro.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_addMacro.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_addMacro.ForeColor = System.Drawing.Color.White;
-            this.btn_addMacro.Image = global::CODEX.Properties.Resources.add;
-            this.btn_addMacro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btn_addMacro.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_addMacro.Location = new System.Drawing.Point(646, 134);
-            this.btn_addMacro.Name = "btn_addMacro";
-            this.btn_addMacro.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.btn_addMacro.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.btn_addMacro.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_addMacro.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_addMacro.OnHoverImage = null;
-            this.btn_addMacro.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_addMacro.OnPressedDepth = 25;
-            this.btn_addMacro.Radius = 20;
-            this.btn_addMacro.Size = new System.Drawing.Size(94, 40);
-            this.btn_addMacro.TabIndex = 12;
-            this.btn_addMacro.Text = "ADD";
-            this.btn_addMacro.Click += new System.EventHandler(this.btn_addMacro_Click);
-            // 
             // ni_home
             // 
             this.ni_home.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
@@ -304,11 +282,98 @@
             this.lbl_keys.TabIndex = 21;
             this.lbl_keys.Text = "Keys";
             // 
+            // lbl_configName
+            // 
+            this.lbl_configName.AutoSize = true;
+            this.lbl_configName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_configName.ForeColor = System.Drawing.Color.White;
+            this.lbl_configName.Location = new System.Drawing.Point(19, 3);
+            this.lbl_configName.Name = "lbl_configName";
+            this.lbl_configName.Size = new System.Drawing.Size(52, 15);
+            this.lbl_configName.TabIndex = 22;
+            this.lbl_configName.Text = "Config : ";
+            // 
+            // ofd_home
+            // 
+            this.ofd_home.DefaultExt = "json";
+            this.ofd_home.FileName = "openFileDialog1";
+            this.ofd_home.Filter = "json files (*.json)|*.json";
+            this.ofd_home.Multiselect = true;
+            this.ofd_home.Title = "CODEx open config files";
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.AnimationHoverSpeed = 0.07F;
+            this.btn_clear.AnimationSpeed = 0.03F;
+            this.btn_clear.BackColor = System.Drawing.Color.Transparent;
+            this.btn_clear.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_clear.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_clear.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_clear.BorderSize = 1;
+            this.btn_clear.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_clear.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_clear.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_clear.ForeColor = System.Drawing.Color.White;
+            this.btn_clear.Image = global::CODEX.Properties.Resources.eraser;
+            this.btn_clear.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_clear.Location = new System.Drawing.Point(465, 19);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_clear.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_clear.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_clear.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_clear.OnHoverImage = null;
+            this.btn_clear.OnPressedColor = System.Drawing.Color.White;
+            this.btn_clear.OnPressedDepth = 5;
+            this.btn_clear.Radius = 20;
+            this.btn_clear.Size = new System.Drawing.Size(94, 40);
+            this.btn_clear.TabIndex = 23;
+            this.btn_clear.Text = " Clear";
+            this.btn_clear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // btn_addMacro
+            // 
+            this.btn_addMacro.AnimationHoverSpeed = 0.07F;
+            this.btn_addMacro.AnimationSpeed = 0.03F;
+            this.btn_addMacro.BackColor = System.Drawing.Color.Transparent;
+            this.btn_addMacro.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.btn_addMacro.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.btn_addMacro.BorderColor = System.Drawing.Color.Black;
+            this.btn_addMacro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_addMacro.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_addMacro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_addMacro.ForeColor = System.Drawing.Color.White;
+            this.btn_addMacro.Image = global::CODEX.Properties.Resources.add;
+            this.btn_addMacro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btn_addMacro.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_addMacro.Location = new System.Drawing.Point(646, 134);
+            this.btn_addMacro.Name = "btn_addMacro";
+            this.btn_addMacro.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.btn_addMacro.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.btn_addMacro.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_addMacro.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_addMacro.OnHoverImage = null;
+            this.btn_addMacro.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_addMacro.OnPressedDepth = 25;
+            this.btn_addMacro.Radius = 20;
+            this.btn_addMacro.Size = new System.Drawing.Size(94, 40);
+            this.btn_addMacro.TabIndex = 12;
+            this.btn_addMacro.Text = "ADD";
+            this.btn_addMacro.Click += new System.EventHandler(this.btn_addMacro_Click);
+            // 
+            // timer_macro
+            // 
+            this.timer_macro.Enabled = true;
+            this.timer_macro.Tick += new System.EventHandler(this.timer_macro_Tick);
+            // 
             // uc_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.btn_clear);
+            this.Controls.Add(this.lbl_configName);
             this.Controls.Add(this.lbl_keys);
             this.Controls.Add(this.cbox_keys);
             this.Controls.Add(this.gunaLabel1);
@@ -347,5 +412,9 @@
         public System.Windows.Forms.NotifyIcon ni_home;
         private Guna.UI.WinForms.GunaComboBox cbox_keys;
         private Guna.UI.WinForms.GunaLabel lbl_keys;
+        private Guna.UI.WinForms.GunaLabel lbl_configName;
+        private System.Windows.Forms.OpenFileDialog ofd_home;
+        private Guna.UI.WinForms.GunaGradientButton btn_clear;
+        private System.Windows.Forms.Timer timer_macro;
     }
 }

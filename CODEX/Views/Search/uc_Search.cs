@@ -29,6 +29,13 @@ namespace CODEX.Views.Search
             if (cbox_SelectedDvarList.Text != String.Empty)
                 SearchDvars("");
         }
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            if (cbox_SelectedDvarList.Text != String.Empty)
+                SearchDvars(tbox_searchBar.Text);
+            if (tbox_searchBar.Text == "Search . . .")
+                SearchDvars("");
+        }
 
         #region LoadDvarLists
         private DVARList LoadDvarLists()
@@ -119,14 +126,7 @@ namespace CODEX.Views.Search
             lbl_result.Text = $"Result : {commands.Count()}/{game.Commands.Count()}";
         }
         #endregion
-
-        private void btn_search_Click(object sender, EventArgs e)
-        {
-            if (cbox_SelectedDvarList.Text != String.Empty)
-                SearchDvars(tbox_searchBar.Text);
-            if (tbox_searchBar.Text == "Search . . .")
-                SearchDvars("");
-        }
+ 
     }
     #region DVARList classes
     public class DVARList

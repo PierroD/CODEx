@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ExternalConsole.cs" />
     <Compile Include="Utils\INIFile.cs" />
     <Compile Include="Utils\LoadingAnimation.cs" />
     <Compile Include="Utils\Loading\uc_Loading.cs">
@@ -70,6 +71,7 @@
       <DependentUpon>uc_Loading.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SwitchUserControl.cs" />
+    <Compile Include="Utils\Trainer.cs" />
     <Compile Include="Views\Home\MacroModel\uc_Macro.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
