@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Home));
             this.tbox_console = new System.Windows.Forms.TextBox();
             this.btn_saveConfigFile = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_loadConfig = new Guna.UI.WinForms.GunaGradientButton();
@@ -71,6 +72,7 @@
             this.btn_saveConfigFile.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
             this.btn_saveConfigFile.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
             this.btn_saveConfigFile.BorderColor = System.Drawing.Color.Black;
+            this.btn_saveConfigFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_saveConfigFile.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_saveConfigFile.FocusedColor = System.Drawing.Color.Empty;
             this.btn_saveConfigFile.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -102,6 +104,7 @@
             this.btn_loadConfig.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.btn_loadConfig.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
             this.btn_loadConfig.BorderSize = 1;
+            this.btn_loadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_loadConfig.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_loadConfig.FocusedColor = System.Drawing.Color.Empty;
             this.btn_loadConfig.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -153,6 +156,7 @@
             this.cbox_config.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.cbox_config.BorderColor = System.Drawing.Color.Silver;
             this.cbox_config.BorderSize = 1;
+            this.cbox_config.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbox_config.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbox_config.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbox_config.FocusedColor = System.Drawing.Color.Empty;
@@ -194,6 +198,7 @@
             this.btn_sendConsole.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
             this.btn_sendConsole.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
             this.btn_sendConsole.BorderColor = System.Drawing.Color.Black;
+            this.btn_sendConsole.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_sendConsole.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_sendConsole.FocusedColor = System.Drawing.Color.Empty;
             this.btn_sendConsole.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -249,6 +254,7 @@
             // ni_home
             // 
             this.ni_home.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ni_home.Icon = ((System.Drawing.Icon)(resources.GetObject("ni_home.Icon")));
             this.ni_home.Text = "CODEx";
             this.ni_home.Visible = true;
             // 
@@ -258,6 +264,7 @@
             this.cbox_keys.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.cbox_keys.BorderColor = System.Drawing.Color.Silver;
             this.cbox_keys.BorderSize = 1;
+            this.cbox_keys.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbox_keys.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbox_keys.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbox_keys.FocusedColor = System.Drawing.Color.Empty;
@@ -311,6 +318,7 @@
             this.btn_clear.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.btn_clear.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
             this.btn_clear.BorderSize = 1;
+            this.btn_clear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_clear.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_clear.FocusedColor = System.Drawing.Color.Empty;
             this.btn_clear.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -341,6 +349,7 @@
             this.btn_addMacro.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
             this.btn_addMacro.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
             this.btn_addMacro.BorderColor = System.Drawing.Color.Black;
+            this.btn_addMacro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addMacro.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_addMacro.FocusedColor = System.Drawing.Color.Empty;
             this.btn_addMacro.Font = new System.Drawing.Font("Segoe UI", 12F);

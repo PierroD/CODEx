@@ -110,7 +110,10 @@ namespace CODEX.Views.Search
                     dvarDescription = command.Description
                 });
             }
+            pnl_dvars.SuspendLayout();
             pnl_dvars.Controls.AddRange(searchResult.ToArray());
+            pnl_dvars.ResumeLayout();
+            this.ResumeLayout();
             lbl_result.Text = $"Result : {commands.Count()}/{game.Commands.Count()}";
         }
         #endregion

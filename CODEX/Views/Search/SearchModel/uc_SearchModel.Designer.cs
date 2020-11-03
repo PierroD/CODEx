@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_SearchModel));
             this.pnl_background = new Guna.UI.WinForms.GunaLinePanel();
             this.pbox_copyDvar = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_dvarDescription = new Guna.UI.WinForms.GunaLabel();
             this.lbl_dvarName = new Guna.UI.WinForms.GunaLabel();
+            this.ni_searchModel = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnl_background.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_copyDvar)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +62,7 @@
             // pbox_copyDvar
             // 
             this.pbox_copyDvar.BaseColor = System.Drawing.Color.White;
+            this.pbox_copyDvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbox_copyDvar.Image = global::CODEX.Properties.Resources.copy;
             this.pbox_copyDvar.Location = new System.Drawing.Point(644, 15);
             this.pbox_copyDvar.Name = "pbox_copyDvar";
@@ -66,6 +70,7 @@
             this.pbox_copyDvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbox_copyDvar.TabIndex = 2;
             this.pbox_copyDvar.TabStop = false;
+            this.pbox_copyDvar.Click += new System.EventHandler(this.pbox_copyDvar_Click);
             // 
             // lbl_dvarDescription
             // 
@@ -88,6 +93,13 @@
             this.lbl_dvarName.TabIndex = 0;
             this.lbl_dvarName.Text = "Name";
             // 
+            // ni_searchModel
+            // 
+            this.ni_searchModel.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ni_searchModel.Icon = ((System.Drawing.Icon)(resources.GetObject("ni_searchModel.Icon")));
+            this.ni_searchModel.Text = "CODEx";
+            this.ni_searchModel.Visible = true;
+            // 
             // uc_SearchModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,5 +121,6 @@
         private Guna.UI.WinForms.GunaPictureBox pbox_copyDvar;
         private Guna.UI.WinForms.GunaLabel lbl_dvarDescription;
         private Guna.UI.WinForms.GunaLabel lbl_dvarName;
+        private System.Windows.Forms.NotifyIcon ni_searchModel;
     }
 }

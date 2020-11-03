@@ -25,5 +25,22 @@ namespace CODEX.Views.Search.SearchModel
             lbl_dvarName.Text = dvarName;
             lbl_dvarDescription.Text = dvarDescription;
         }
+
+        private void pbox_copyDvar_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dvarName);
+            Notify($"The following DVAR {Environment.NewLine + dvarName} has been copied to the clipboard", "CODEx", "Copied DVAR to the clipboard");
+        }
+
+        #region Notify
+        void Notify(string tipText, string mainText, string tipTitle)
+        {
+            ni_searchModel.BalloonTipText = tipText;
+            ni_searchModel.Text = mainText;
+            ni_searchModel.BalloonTipTitle = tipTitle;
+            ni_searchModel.Visible = true;
+            ni_searchModel.ShowBalloonTip(1000, tipTitle, tipText, ToolTipIcon.Info);
+        }
+        #endregion
     }
 }

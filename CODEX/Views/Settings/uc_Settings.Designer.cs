@@ -122,6 +122,7 @@
             this.cbox_enableDesktopShortcut.BaseColor = System.Drawing.SystemColors.Control;
             this.cbox_enableDesktopShortcut.CheckedOffColor = System.Drawing.Color.DarkGray;
             this.cbox_enableDesktopShortcut.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.cbox_enableDesktopShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbox_enableDesktopShortcut.FillColor = System.Drawing.Color.White;
             this.cbox_enableDesktopShortcut.Location = new System.Drawing.Point(585, 76);
             this.cbox_enableDesktopShortcut.Name = "cbox_enableDesktopShortcut";
@@ -223,6 +224,7 @@
             this.btn_update.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
             this.btn_update.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
             this.btn_update.BorderColor = System.Drawing.Color.Black;
+            this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_update.FocusedColor = System.Drawing.Color.Empty;
             this.btn_update.Font = new System.Drawing.Font("Segoe UI", 12F);

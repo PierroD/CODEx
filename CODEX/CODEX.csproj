@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CODEXOffsets, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CODEXOffsets\bin\Debug\netstandard2.0\CODEXOffsets.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI, Version=1.9.0.0, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
@@ -182,12 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eraser.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CODEXOffsets\CODEXOffsets.csproj">
-      <Project>{65cc38de-2e66-4ef6-82f0-ed61da8e82b9}</Project>
-      <Name>CODEXOffsets</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
