@@ -103,7 +103,10 @@ namespace CODEX.Views.Home
 
 
         #region SaveConfig
-
+        /// <summary>
+        /// Save the config and the macros to a json and cfg file
+        /// </summary>
+        /// <param name="configName"></param>
         void SaveConfig(string configName)
         {
             SavingJson savingJson = new SavingJson();
@@ -133,6 +136,12 @@ namespace CODEX.Views.Home
         #endregion
 
         #region Notify
+        /// <summary>
+        /// Notify Icon, to inform the user
+        /// </summary>
+        /// <param name="tipText"></param>
+        /// <param name="mainText"></param>
+        /// <param name="tipTitle"></param>
         void Notify(string tipText, string mainText, string tipTitle)
         {
             ni_home.BalloonTipText = tipText;
@@ -144,6 +153,11 @@ namespace CODEX.Views.Home
         #endregion
 
         #region addMacro
+        /// <summary>
+        /// Add a macro to to the FlowLayoutPanel
+        /// </summary>
+        /// <param name="cfgPath"></param>
+        /// <param name="key"></param>
         void addMacro(string cfgPath, int key)
         {
             pnl_macros.Controls.Add(new uc_Macro
@@ -155,6 +169,13 @@ namespace CODEX.Views.Home
         #endregion
 
         #region KeyStringToInt
+        /// <summary>
+        /// Returning the int value of a key
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <returns>
+        /// return int value of a key
+        /// </returns>
         private int KeyStringToInt(string keyName)
         {
             return (int)(Keys)Enum.Parse(typeof(Keys), keyName, true);
@@ -182,6 +203,10 @@ namespace CODEX.Views.Home
         #endregion
 
         #region LoadConfigFile
+        /// <summary>
+        /// Load config file and it's macro
+        /// </summary>
+        /// <param name="filenames"></param>
         void LoadConfigFile(string[] filenames)
         {
             foreach (string file in filenames)
@@ -200,6 +225,10 @@ namespace CODEX.Views.Home
 
         #region ConfigPath & CheckIfConfigFolderExist
         INIFile ini = new INIFile($"{Directory.GetCurrentDirectory()}\\config.ini");
+        /// <summary>
+        /// Return where the config files are located
+        /// </summary>
+        /// <returns>configPath</returns>
         private string ConfigPath()
         {
             if (ini.IniReadValue("PATHS", "ConfigPath") != String.Empty)
@@ -207,6 +236,14 @@ namespace CODEX.Views.Home
             else
                 return CheckIfConfigFolderExist(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), true);
         }
+        /// <summary>
+        /// Check if the config folder exist, if not, it creates it
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <param name="createfolder"></param>
+        /// <returns>
+        /// the config folder path
+        /// </returns>
         string CheckIfConfigFolderExist(string folderPath, bool createfolder)
         {
             if (createfolder)
@@ -219,6 +256,10 @@ namespace CODEX.Views.Home
         #endregion
 
         #region SendDvarToGame
+        /// <summary>
+        /// Send the configs to your call of duty game
+        /// </summary>
+        /// <param name="dvars"></param>
         private void SendDvarToGame(string[] dvars)
         {
             string command="";

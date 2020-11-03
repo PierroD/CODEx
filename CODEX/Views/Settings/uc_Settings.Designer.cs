@@ -35,7 +35,6 @@
             this.gunaSeparator2 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_titleDesktopShortcut = new Guna.UI.WinForms.GunaLabel();
             this.lbl_DesktopShortcut = new Guna.UI.WinForms.GunaLabel();
-            this.cbox_enableDesktopShortcut = new Guna.UI.WinForms.GunaSwitch();
             this.gunaSeparator3 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_titleUpdates = new Guna.UI.WinForms.GunaLabel();
             this.tbox_updates = new System.Windows.Forms.TextBox();
@@ -46,6 +45,7 @@
             this.lbl_updatesChanges = new Guna.UI.WinForms.GunaLabel();
             this.btn_update = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_selectConfigFolder = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btn_createShortcut = new Guna.UI.WinForms.GunaGradientButton();
             this.SuspendLayout();
             // 
             // tbox_configFolderPath
@@ -113,21 +113,9 @@
             this.lbl_DesktopShortcut.ForeColor = System.Drawing.Color.White;
             this.lbl_DesktopShortcut.Location = new System.Drawing.Point(426, 77);
             this.lbl_DesktopShortcut.Name = "lbl_DesktopShortcut";
-            this.lbl_DesktopShortcut.Size = new System.Drawing.Size(149, 17);
+            this.lbl_DesktopShortcut.Size = new System.Drawing.Size(159, 17);
             this.lbl_DesktopShortcut.TabIndex = 16;
-            this.lbl_DesktopShortcut.Text = "Enable desktop shortcut";
-            // 
-            // cbox_enableDesktopShortcut
-            // 
-            this.cbox_enableDesktopShortcut.BaseColor = System.Drawing.SystemColors.Control;
-            this.cbox_enableDesktopShortcut.CheckedOffColor = System.Drawing.Color.DarkGray;
-            this.cbox_enableDesktopShortcut.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.cbox_enableDesktopShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbox_enableDesktopShortcut.FillColor = System.Drawing.Color.White;
-            this.cbox_enableDesktopShortcut.Location = new System.Drawing.Point(585, 76);
-            this.cbox_enableDesktopShortcut.Name = "cbox_enableDesktopShortcut";
-            this.cbox_enableDesktopShortcut.Size = new System.Drawing.Size(28, 20);
-            this.cbox_enableDesktopShortcut.TabIndex = 17;
+            this.lbl_DesktopShortcut.Text = "Create a desktop shortcut";
             // 
             // gunaSeparator3
             // 
@@ -245,6 +233,8 @@
             this.btn_update.Size = new System.Drawing.Size(106, 40);
             this.btn_update.TabIndex = 26;
             this.btn_update.Text = "UPDATE";
+            this.btn_update.Visible = false;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_selectConfigFolder
             // 
@@ -281,11 +271,43 @@
             this.btn_selectConfigFolder.TabIndex = 10;
             this.btn_selectConfigFolder.Click += new System.EventHandler(this.btn_selectConfigFolder_Click);
             // 
+            // btn_createShortcut
+            // 
+            this.btn_createShortcut.AnimationHoverSpeed = 0.07F;
+            this.btn_createShortcut.AnimationSpeed = 0.03F;
+            this.btn_createShortcut.BackColor = System.Drawing.Color.Transparent;
+            this.btn_createShortcut.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_createShortcut.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_createShortcut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_createShortcut.BorderSize = 1;
+            this.btn_createShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_createShortcut.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_createShortcut.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_createShortcut.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_createShortcut.ForeColor = System.Drawing.Color.White;
+            this.btn_createShortcut.Image = null;
+            this.btn_createShortcut.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_createShortcut.Location = new System.Drawing.Point(591, 64);
+            this.btn_createShortcut.Name = "btn_createShortcut";
+            this.btn_createShortcut.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_createShortcut.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_createShortcut.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_createShortcut.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_createShortcut.OnHoverImage = null;
+            this.btn_createShortcut.OnPressedColor = System.Drawing.Color.White;
+            this.btn_createShortcut.OnPressedDepth = 5;
+            this.btn_createShortcut.Radius = 20;
+            this.btn_createShortcut.Size = new System.Drawing.Size(94, 40);
+            this.btn_createShortcut.TabIndex = 27;
+            this.btn_createShortcut.Text = "CREATE";
+            this.btn_createShortcut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // uc_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.btn_createShortcut);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.lbl_updatesChanges);
             this.Controls.Add(this.lb_lastestVersion);
@@ -295,7 +317,6 @@
             this.Controls.Add(this.tbox_updates);
             this.Controls.Add(this.gunaSeparator3);
             this.Controls.Add(this.lbl_titleUpdates);
-            this.Controls.Add(this.cbox_enableDesktopShortcut);
             this.Controls.Add(this.lbl_DesktopShortcut);
             this.Controls.Add(this.gunaSeparator2);
             this.Controls.Add(this.lbl_titleDesktopShortcut);
@@ -320,7 +341,6 @@
         private Guna.UI.WinForms.GunaSeparator gunaSeparator2;
         private Guna.UI.WinForms.GunaLabel lbl_titleDesktopShortcut;
         private Guna.UI.WinForms.GunaLabel lbl_DesktopShortcut;
-        private Guna.UI.WinForms.GunaSwitch cbox_enableDesktopShortcut;
         private Guna.UI.WinForms.GunaSeparator gunaSeparator3;
         private Guna.UI.WinForms.GunaLabel lbl_titleUpdates;
         private System.Windows.Forms.TextBox tbox_updates;
@@ -330,5 +350,6 @@
         private Guna.UI.WinForms.GunaLabel lbl_titleLastestVersion;
         private Guna.UI.WinForms.GunaLabel lbl_updatesChanges;
         private Guna.UI.WinForms.GunaGradientButton btn_update;
+        private Guna.UI.WinForms.GunaGradientButton btn_createShortcut;
     }
 }

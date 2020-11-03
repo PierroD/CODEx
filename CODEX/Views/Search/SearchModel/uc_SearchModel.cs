@@ -33,6 +33,12 @@ namespace CODEX.Views.Search.SearchModel
         }
 
         #region Notify
+        /// <summary>
+        /// Notify Icon, to inform the user
+        /// </summary>
+        /// <param name="tipText"></param>
+        /// <param name="mainText"></param>
+        /// <param name="tipTitle"></param>
         void Notify(string tipText, string mainText, string tipTitle)
         {
             ni_searchModel.BalloonTipText = tipText;
