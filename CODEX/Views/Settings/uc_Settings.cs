@@ -95,7 +95,7 @@ namespace CODEX.Views.Settings
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-
+            // start updater
         }
     }
 }

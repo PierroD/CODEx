@@ -75,7 +75,7 @@
             this.btn_saveConfigFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_saveConfigFile.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_saveConfigFile.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_saveConfigFile.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_saveConfigFile.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_saveConfigFile.ForeColor = System.Drawing.Color.White;
             this.btn_saveConfigFile.Image = null;
             this.btn_saveConfigFile.ImageSize = new System.Drawing.Size(20, 20);
@@ -107,7 +107,7 @@
             this.btn_loadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_loadConfig.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_loadConfig.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_loadConfig.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_loadConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_loadConfig.ForeColor = System.Drawing.Color.White;
             this.btn_loadConfig.Image = null;
             this.btn_loadConfig.ImageSize = new System.Drawing.Size(20, 20);
@@ -201,7 +201,7 @@
             this.btn_sendConsole.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_sendConsole.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_sendConsole.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_sendConsole.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_sendConsole.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sendConsole.ForeColor = System.Drawing.Color.White;
             this.btn_sendConsole.Image = null;
             this.btn_sendConsole.ImageSize = new System.Drawing.Size(20, 20);
@@ -321,7 +321,7 @@
             this.btn_clear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_clear.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_clear.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_clear.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_clear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clear.ForeColor = System.Drawing.Color.White;
             this.btn_clear.Image = global::CODEX.Properties.Resources.eraser;
             this.btn_clear.ImageSize = new System.Drawing.Size(20, 20);
@@ -352,7 +352,7 @@
             this.btn_addMacro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addMacro.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_addMacro.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_addMacro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_addMacro.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addMacro.ForeColor = System.Drawing.Color.White;
             this.btn_addMacro.Image = global::CODEX.Properties.Resources.add;
             this.btn_addMacro.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -370,6 +370,7 @@
             this.btn_addMacro.Size = new System.Drawing.Size(94, 40);
             this.btn_addMacro.TabIndex = 12;
             this.btn_addMacro.Text = "ADD";
+            this.btn_addMacro.TextOffsetX = 5;
             this.btn_addMacro.Click += new System.EventHandler(this.btn_addMacro_Click);
             // 
             // timer_macro

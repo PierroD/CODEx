@@ -215,7 +215,7 @@
             this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_update.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_update.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update.ForeColor = System.Drawing.Color.White;
             this.btn_update.Image = global::CODEX.Properties.Resources.update;
             this.btn_update.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -230,7 +230,7 @@
             this.btn_update.OnPressedColor = System.Drawing.Color.Black;
             this.btn_update.OnPressedDepth = 10;
             this.btn_update.Radius = 20;
-            this.btn_update.Size = new System.Drawing.Size(106, 40);
+            this.btn_update.Size = new System.Drawing.Size(111, 40);
             this.btn_update.TabIndex = 26;
             this.btn_update.Text = "UPDATE";
             this.btn_update.Visible = false;
@@ -283,7 +283,7 @@
             this.btn_createShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_createShortcut.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_createShortcut.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_createShortcut.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_createShortcut.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_createShortcut.ForeColor = System.Drawing.Color.White;
             this.btn_createShortcut.Image = null;
             this.btn_createShortcut.ImageSize = new System.Drawing.Size(20, 20);

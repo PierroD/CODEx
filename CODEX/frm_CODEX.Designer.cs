@@ -346,6 +346,7 @@
             this.Controls.Add(this.pnl_left);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_CODEX";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CODEX";
             this.Load += new System.EventHandler(this.CODEX_Load);
             this.pnl_left.ResumeLayout(false);
