@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
-            this.lbl_config = new Guna.UI.WinForms.GunaLabel();
             this.lbl_key = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_config = new Guna.UI.WinForms.GunaLabel();
+            this.pbox_trashMacro = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaLinePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_trashMacro)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLinePanel1
             // 
+            this.gunaLinePanel1.Controls.Add(this.pbox_trashMacro);
             this.gunaLinePanel1.Controls.Add(this.lbl_key);
             this.gunaLinePanel1.Controls.Add(this.lbl_config);
             this.gunaLinePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -50,6 +53,17 @@
             this.gunaLinePanel1.Size = new System.Drawing.Size(240, 40);
             this.gunaLinePanel1.TabIndex = 0;
             // 
+            // lbl_key
+            // 
+            this.lbl_key.AutoSize = true;
+            this.lbl_key.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_key.ForeColor = System.Drawing.Color.White;
+            this.lbl_key.Location = new System.Drawing.Point(139, 13);
+            this.lbl_key.Name = "lbl_key";
+            this.lbl_key.Size = new System.Drawing.Size(26, 15);
+            this.lbl_key.TabIndex = 1;
+            this.lbl_key.Text = "Key";
+            // 
             // lbl_config
             // 
             this.lbl_config.AutoSize = true;
@@ -61,16 +75,17 @@
             this.lbl_config.TabIndex = 0;
             this.lbl_config.Text = "Config";
             // 
-            // lbl_key
+            // pbox_trashMacro
             // 
-            this.lbl_key.AutoSize = true;
-            this.lbl_key.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lbl_key.ForeColor = System.Drawing.Color.White;
-            this.lbl_key.Location = new System.Drawing.Point(171, 13);
-            this.lbl_key.Name = "lbl_key";
-            this.lbl_key.Size = new System.Drawing.Size(26, 15);
-            this.lbl_key.TabIndex = 1;
-            this.lbl_key.Text = "Key";
+            this.pbox_trashMacro.BaseColor = System.Drawing.Color.White;
+            this.pbox_trashMacro.Image = global::CODEX.Properties.Resources.delete;
+            this.pbox_trashMacro.Location = new System.Drawing.Point(201, 5);
+            this.pbox_trashMacro.Name = "pbox_trashMacro";
+            this.pbox_trashMacro.Size = new System.Drawing.Size(30, 30);
+            this.pbox_trashMacro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_trashMacro.TabIndex = 2;
+            this.pbox_trashMacro.TabStop = false;
+            this.pbox_trashMacro.Click += new System.EventHandler(this.pbox_trashMacro_Click);
             // 
             // uc_Macro
             // 
@@ -83,6 +98,7 @@
             this.Load += new System.EventHandler(this.uc_Macro_Load);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_trashMacro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,5 +108,6 @@
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private Guna.UI.WinForms.GunaLabel lbl_key;
         private Guna.UI.WinForms.GunaLabel lbl_config;
+        private Guna.UI.WinForms.GunaPictureBox pbox_trashMacro;
     }
 }

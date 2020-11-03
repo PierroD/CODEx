@@ -26,5 +26,10 @@ namespace CODEX.Views.Home.MacroModel
             lbl_config.Text = Path.GetFileName(CfgPath);
             lbl_key.Text = Enum.GetName(typeof(Keys), Key);
         }
+
+        private void pbox_trashMacro_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+        }
     }
 }

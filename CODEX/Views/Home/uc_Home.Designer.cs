@@ -39,7 +39,7 @@
             this.btn_sendConsole = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaSeparator1 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_gamefound = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_gameName = new Guna.UI.WinForms.GunaLabel();
             this.ni_home = new System.Windows.Forms.NotifyIcon(this.components);
             this.cbox_keys = new Guna.UI.WinForms.GunaComboBox();
             this.lbl_keys = new Guna.UI.WinForms.GunaLabel();
@@ -214,6 +214,7 @@
             this.btn_sendConsole.TabIndex = 15;
             this.btn_sendConsole.Text = "SEND";
             this.btn_sendConsole.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_sendConsole.Click += new System.EventHandler(this.btn_sendConsole_Click);
             // 
             // gunaSeparator1
             // 
@@ -234,16 +235,16 @@
             this.lbl_gamefound.TabIndex = 18;
             this.lbl_gamefound.Text = "Game detected by CODEx";
             // 
-            // gunaLabel1
+            // lbl_gameName
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(274, 476);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(167, 15);
-            this.gunaLabel1.TabIndex = 19;
-            this.gunaLabel1.Text = "Call of Duty Modern Warfare 3";
+            this.lbl_gameName.AutoSize = true;
+            this.lbl_gameName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_gameName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_gameName.Location = new System.Drawing.Point(274, 476);
+            this.lbl_gameName.Name = "lbl_gameName";
+            this.lbl_gameName.Size = new System.Drawing.Size(167, 15);
+            this.lbl_gameName.TabIndex = 19;
+            this.lbl_gameName.Text = "Call of Duty Modern Warfare 3";
             // 
             // ni_home
             // 
@@ -376,7 +377,7 @@
             this.Controls.Add(this.lbl_configName);
             this.Controls.Add(this.lbl_keys);
             this.Controls.Add(this.cbox_keys);
-            this.Controls.Add(this.gunaLabel1);
+            this.Controls.Add(this.lbl_gameName);
             this.Controls.Add(this.lbl_gamefound);
             this.Controls.Add(this.gunaSeparator1);
             this.Controls.Add(this.btn_sendConsole);
@@ -408,7 +409,7 @@
         private Guna.UI.WinForms.GunaGradientButton btn_sendConsole;
         private Guna.UI.WinForms.GunaSeparator gunaSeparator1;
         private Guna.UI.WinForms.GunaLabel lbl_gamefound;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaLabel lbl_gameName;
         public System.Windows.Forms.NotifyIcon ni_home;
         private Guna.UI.WinForms.GunaComboBox cbox_keys;
         private Guna.UI.WinForms.GunaLabel lbl_keys;

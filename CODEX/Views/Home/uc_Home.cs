@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using CODEX.Utils;
+using CODEXOffsets;
 using CODEX.Views.Home.MacroModel;
 using System.Runtime.InteropServices;
 
@@ -48,7 +49,7 @@ namespace CODEX.Views.Home
                 cbox_keys.Items.Add(Enum.GetName(typeof(Keys), key));
             }
         }
-        List<Macro> macros = new List<Macro>();
+
         private void btn_addMacro_Click(object sender, EventArgs e)
         {
             addMacro(configs[cbox_config.SelectedIndex], KeyStringToInt(cbox_keys.Text));
@@ -77,12 +78,29 @@ namespace CODEX.Views.Home
         #endregion
         private void timer_macro_Tick(object sender, EventArgs e)
         {
-            foreach (Macro macro in macros)
+            lbl_gameName.Text = COD.LongGameName();
+            foreach (Macro macro in GetMacros())
             {
                 if (GetAsyncKeyState((Keys)Enum.Parse(typeof(Keys), ((Keys)macro.Key).ToString())))
-                    
+                    SendDvarToGame(File.ReadAllLines(macro.CfgPath));
             }
         }
+
+        private List<Macro> GetMacros()
+        {
+            List<Macro> macros = new List<Macro>();
+            foreach (uc_Macro ucMacro in pnl_macros.Controls)
+            {
+                macros.Add(new Macro { CfgPath = ucMacro.CfgPath, Key = ucMacro.Key });
+            }
+            return macros;
+        }
+
+        private void btn_sendConsole_Click(object sender, EventArgs e)
+        {
+            SendDvarToGame(tbox_console.Lines);
+        }
+
 
         #region SaveConfig
         void SaveConfig(string configName)
@@ -103,7 +121,8 @@ namespace CODEX.Views.Home
                     sw.WriteLine(line);
                 }
             }
-            savingJson.Macros = macros;
+
+            savingJson.Macros = GetMacros();
             using (JsonWriter writer = new JsonTextWriter(new StreamWriter($"{configFolder}\\{configName}.json")))
             {
                 new JsonSerializer().Serialize(writer, savingJson);
@@ -123,7 +142,6 @@ namespace CODEX.Views.Home
         }
         #endregion
 
-
         #region addMacro
         void addMacro(string cfgPath, int key)
         {
@@ -132,7 +150,6 @@ namespace CODEX.Views.Home
                 CfgPath = cfgPath,
                 Key = key
             });
-            macros.Add(new Macro { CfgPath = cfgPath, Key = key });
         }
         #endregion
 
@@ -163,7 +180,6 @@ namespace CODEX.Views.Home
         }
         #endregion
 
-
         #region LoadConfigFile
         void LoadConfigFile(string[] filenames)
         {
@@ -172,7 +188,8 @@ namespace CODEX.Views.Home
                 var configFile = JsonConvert.DeserializeObject<SavingJson>(File.ReadAllText(file));
                 lbl_configName.Text += $" {Path.GetFileName(configFile.CfgPath)}";
                 tbox_console.Text += File.ReadAllText(configFile.CfgPath);
-                foreach(Macro macro in configFile.Macros)
+                tbox_configName.Text += $" {Path.GetFileNameWithoutExtension(configFile.CfgPath)}";
+                foreach (Macro macro in configFile.Macros)
                 {
                     addMacro(macro.CfgPath, macro.Key);
                 }
@@ -200,6 +217,17 @@ namespace CODEX.Views.Home
         }
         #endregion
 
+        #region SendDvarToGame
+        private void SendDvarToGame(string[] dvars)
+        {
+            string command="";
+            foreach(string dvar in dvars)
+            {
+                command += $"{dvar};";
+            }
+            ExternalConsole.Send(command);
+        }
+        #endregion
     }
 
     #region savingJson classes

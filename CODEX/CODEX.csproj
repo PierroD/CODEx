@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ExternalConsole.cs" />
     <Compile Include="Utils\INIFile.cs" />
     <Compile Include="Utils\LoadingAnimation.cs" />
     <Compile Include="Utils\Loading\uc_Loading.cs">
@@ -181,6 +182,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CODEXOffsets\CODEXOffsets.csproj">
+      <Project>{65cc38de-2e66-4ef6-82f0-ed61da8e82b9}</Project>
+      <Name>CODEXOffsets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
