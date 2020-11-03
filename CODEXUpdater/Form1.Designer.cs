@@ -153,6 +153,7 @@
             this.Controls.Add(this.btn_minimize);
             this.Controls.Add(this.btn_close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_updater";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CODEX Updater";

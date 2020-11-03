@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -63,7 +64,8 @@ namespace CODEXUpdater
 
         private void btn_end_Click(object sender, EventArgs e)
         {
-            // start codex
+            Process.Start($"{Directory.GetCurrentDirectory()}\\CODEX.exe");
+            Application.Exit();
         }
     }
 }

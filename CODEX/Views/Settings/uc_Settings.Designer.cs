@@ -40,7 +40,7 @@
             this.tbox_updates = new System.Windows.Forms.TextBox();
             this.lbl_titleCurrentVerison = new Guna.UI.WinForms.GunaLabel();
             this.lbl_currentVerison = new Guna.UI.WinForms.GunaLabel();
-            this.lb_lastestVersion = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_lastestVersion = new Guna.UI.WinForms.GunaLabel();
             this.lbl_titleLastestVersion = new Guna.UI.WinForms.GunaLabel();
             this.lbl_updatesChanges = new Guna.UI.WinForms.GunaLabel();
             this.btn_update = new Guna.UI.WinForms.GunaGradientButton();
@@ -171,16 +171,16 @@
             this.lbl_currentVerison.TabIndex = 22;
             this.lbl_currentVerison.Text = "v1.0";
             // 
-            // lb_lastestVersion
+            // lbl_lastestVersion
             // 
-            this.lb_lastestVersion.AutoSize = true;
-            this.lb_lastestVersion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_lastestVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
-            this.lb_lastestVersion.Location = new System.Drawing.Point(136, 342);
-            this.lb_lastestVersion.Name = "lb_lastestVersion";
-            this.lb_lastestVersion.Size = new System.Drawing.Size(31, 17);
-            this.lb_lastestVersion.TabIndex = 24;
-            this.lb_lastestVersion.Text = "v1.0";
+            this.lbl_lastestVersion.AutoSize = true;
+            this.lbl_lastestVersion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lastestVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_lastestVersion.Location = new System.Drawing.Point(136, 342);
+            this.lbl_lastestVersion.Name = "lbl_lastestVersion";
+            this.lbl_lastestVersion.Size = new System.Drawing.Size(31, 17);
+            this.lbl_lastestVersion.TabIndex = 24;
+            this.lbl_lastestVersion.Text = "v1.0";
             // 
             // lbl_titleLastestVersion
             // 
@@ -301,6 +301,7 @@
             this.btn_createShortcut.TabIndex = 27;
             this.btn_createShortcut.Text = "CREATE";
             this.btn_createShortcut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_createShortcut.Click += new System.EventHandler(this.btn_createShortcut_Click);
             // 
             // uc_Settings
             // 
@@ -310,7 +311,7 @@
             this.Controls.Add(this.btn_createShortcut);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.lbl_updatesChanges);
-            this.Controls.Add(this.lb_lastestVersion);
+            this.Controls.Add(this.lbl_lastestVersion);
             this.Controls.Add(this.lbl_titleLastestVersion);
             this.Controls.Add(this.lbl_currentVerison);
             this.Controls.Add(this.lbl_titleCurrentVerison);
@@ -346,7 +347,7 @@
         private System.Windows.Forms.TextBox tbox_updates;
         private Guna.UI.WinForms.GunaLabel lbl_titleCurrentVerison;
         private Guna.UI.WinForms.GunaLabel lbl_currentVerison;
-        private Guna.UI.WinForms.GunaLabel lb_lastestVersion;
+        private Guna.UI.WinForms.GunaLabel lbl_lastestVersion;
         private Guna.UI.WinForms.GunaLabel lbl_titleLastestVersion;
         private Guna.UI.WinForms.GunaLabel lbl_updatesChanges;
         private Guna.UI.WinForms.GunaGradientButton btn_update;

@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using CODEX.Utils;
-
+using System.Diagnostics;
+using System.Reflection;
+using IWshRuntimeLibrary;
 
 namespace CODEX.Views.Settings
 {
@@ -38,7 +40,22 @@ namespace CODEX.Views.Settings
 
             }
         }
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            Process.Start($"{Directory.GetCurrentDirectory()}\\CODEXUpdater.exe");
+            Application.Exit();
+        }
 
+        private void btn_createShortcut_Click(object sender, EventArgs e)
+        {
+            object shDesktop = (object)"Desktop";
+            WshShell shell = new WshShell();
+            string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\CODEx.lnk";
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
+            shortcut.Description = "New shortcut for CODEx";
+            shortcut.TargetPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\CODEX.exe";
+            shortcut.Save();
+        }
 
         #region configPath & CheckIfConfigFolderExist
         private static string configIniPath = $"{Directory.GetCurrentDirectory()}\\config.ini";
@@ -64,7 +81,6 @@ namespace CODEX.Views.Settings
         /// <returns>
         /// the config folder path
         /// </returns>
-
         void CheckIfConfigFolderExist(string folderPath, bool createfolder)
         {
             if (createfolder)
@@ -78,6 +94,10 @@ namespace CODEX.Views.Settings
         }
         #endregion
 
+        #region CheckLastestVersion & UpdateChanges
+        /// <summary>
+        /// Check the lastest version of CODEx
+        /// </summary>
         void CheckLastestVersion()
         {
             string lastestVersion;
@@ -85,17 +105,18 @@ namespace CODEX.Views.Settings
                 lastestVersion = wc.DownloadString(ini.IniReadValue("VERSION", "LastestVersionUrl"));
             if (!ini.IniReadValue("VERSION", "CurrentVersion").Equals(lastestVersion))
                 btn_update.Visible = true;
-        }
 
+            lbl_currentVerison.Text = $"v{ini.IniReadValue("VERSION", "CurrentVersion")}";
+            lbl_lastestVersion.Text = $"v{lastestVersion}";
+        }
+        /// <summary>
+        /// Get the update changes history and put it into the textbox
+        /// </summary>
         void UpdateChanges()
         {
             using (var wc = new System.Net.WebClient())
-                tbox_updates.Text = wc.DownloadString(ini.IniReadValue("VERSION", "UpdateChangesUrl")); 
+                tbox_updates.Text = wc.DownloadString(ini.IniReadValue("VERSION", "UpdateChangesUrl")).Replace('#', ' ');
         }
-
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            // start updater
-        }
+        #endregion
     }
 }
