@@ -26,15 +26,12 @@ namespace CODEX.Views.Search
         {
             LoadSelectedDvarList();
             DvarLists = LoadDvarLists();
-            if (cbox_SelectedDvarList.Text != String.Empty)
-                SearchDvars("");
         }
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (cbox_SelectedDvarList.Text != String.Empty)
+            if (cbox_SelectedDvarList.Text != String.Empty && cbox_SelectedDvarList.Text != "Search . . .")
                 SearchDvars(tbox_searchBar.Text);
-            if (tbox_searchBar.Text == "Search . . .")
-                SearchDvars("");
+
         }
 
         #region LoadDvarLists
@@ -49,22 +46,11 @@ namespace CODEX.Views.Search
                 string[] files = Directory.GetFiles(folderPath);
                 foreach (string filePath in files)
                 {
-                    List<Command> commands = new List<Command>();
-                    using (var reader = new StreamReader(filePath))
-                    {
-                        string line = null;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (!string.IsNullOrEmpty(line))
-                            {
-                                commands.Add(JsonConvert.DeserializeObject<Command>(line));
-                            }
-                        }
-                    }
+                   var commands = JsonConvert.DeserializeObject<List<Command>>(File.ReadAllText(filePath));
                     if (game.Commands != null)
                         game.Commands.Concat(commands);
                     else
-                        game.Commands = commands;
+                        game.Commands = commands.ToList();
                 }
                 if (dvarList.Games == null)
                     dvarList.Games = new List<Game>();
@@ -79,7 +65,7 @@ namespace CODEX.Views.Search
         void LoadSelectedDvarList()
         {
             string[] games = Directory.GetDirectories(JSONPath);
-            foreach(string game in games)
+            foreach (string game in games)
             {
                 cbox_SelectedDvarList.Items.Add(new DirectoryInfo(game).Name);
             }
@@ -115,18 +101,20 @@ namespace CODEX.Views.Search
             pnl_dvars.Controls.Clear();
             Game game = DvarLists.Games.Where(g => g.GameName == cbox_SelectedDvarList.Text).FirstOrDefault();
             List<Command> commands = game.Commands.Where(c => c.Content.Contains(dvar) || c.Description.Contains(dvar)).ToList();
+            List<uc_SearchModel> searchResult = new List<uc_SearchModel>();
             foreach (Command command in commands)
             {
-                pnl_dvars.Controls.Add(new uc_SearchModel
+              searchResult.Add(new uc_SearchModel
                 {
                     dvarName = command.Content,
                     dvarDescription = command.Description
                 });
             }
+            pnl_dvars.Controls.AddRange(searchResult.ToArray());
             lbl_result.Text = $"Result : {commands.Count()}/{game.Commands.Count()}";
         }
         #endregion
- 
+
     }
     #region DVARList classes
     public class DVARList

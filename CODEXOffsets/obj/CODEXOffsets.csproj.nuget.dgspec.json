@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Develop\\Projets\\perso\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj": {}
+    "C:\\Users\\Light\\Documents\\CODEx\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj": {}
   },
   "projects": {
-    "D:\\Develop\\Projets\\perso\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj": {
+    "C:\\Users\\Light\\Documents\\CODEx\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Develop\\Projets\\perso\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj",
+        "projectUniqueName": "C:\\Users\\Light\\Documents\\CODEx\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj",
         "projectName": "CODEXOffsets",
-        "projectPath": "D:\\Develop\\Projets\\perso\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj",
+        "projectPath": "C:\\Users\\Light\\Documents\\CODEx\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj",
         "packagesPath": "C:\\Users\\Light\\.nuget\\packages\\",
-        "outputPath": "D:\\Develop\\Projets\\perso\\CODEx\\CODEXOffsets\\obj\\",
+        "outputPath": "C:\\Users\\Light\\Documents\\CODEx\\CODEx\\CODEXOffsets\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\Light\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -58,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
