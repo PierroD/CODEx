@@ -38,6 +38,7 @@
             this.lbl_action = new Guna.UI.WinForms.GunaLabel();
             this.drag_form = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.drag_pnl = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.timer_update = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btn_minimize
@@ -140,6 +141,11 @@
             // 
             this.drag_pnl.TargetControl = this.pnl_loading;
             // 
+            // timer_update
+            // 
+            this.timer_update.Interval = 5000;
+            this.timer_update.Tick += new System.EventHandler(this.timer_update_Tick);
+            // 
             // frm_updater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +180,7 @@
         private Guna.UI.WinForms.GunaLabel lbl_action;
         private Guna.UI.WinForms.GunaDragControl drag_form;
         private Guna.UI.WinForms.GunaDragControl drag_pnl;
+        private System.Windows.Forms.Timer timer_update;
     }
 }
 

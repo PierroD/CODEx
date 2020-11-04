@@ -26,10 +26,22 @@ namespace CODEXUpdater
         {
             LoadingAnimation.loading(pnl_loading);
         }
+
+        private void frm_updater_Shown(object sender, EventArgs e)
+        {
+            timer_update.Start();
+        }
+
+        private void btn_end_Click(object sender, EventArgs e)
+        {
+            Process.Start($"{Directory.GetCurrentDirectory()}\\CODEx.exe");
+            Application.Exit();
+        }
+
         private static string configIniPath = $"{Directory.GetCurrentDirectory()}\\config.ini";
         INIFile ini = new INIFile(configIniPath);
         private string tempFolder = Path.GetTempPath() + "CODEX";
-        private void frm_updater_Shown(object sender, EventArgs e)
+        private void timer_update_Tick(object sender, EventArgs e)
         {
             string[] updateDownload;
             using (var wc = new WebClient())
@@ -41,30 +53,34 @@ namespace CODEXUpdater
                 lbl_action.Text = "Create temp download folder";
             }
             string zip_path = tempFolder + "\\" + Guid.NewGuid() + ".zip";
-            lbl_action.Text = "Downloading update";
+            updateActionLabel("Downloading update");
             using (WebClient wc = new WebClient())
             {
-                wc.DownloadFileAsync(
+                wc.DownloadFile(
                     // download link
-                    new Uri(updateDownload.LastOrDefault()),
+                    new Uri(updateDownload[0]),
                     // physical link
                     zip_path
                     );
             }
-            lbl_action.Text = "Extracting files and updating CODEx";
+            updateActionLabel("Extracting files and updating CODEx");
             string install_path = Directory.GetCurrentDirectory();
             using (var strm = File.OpenRead(zip_path))
             using (ZipArchive archive = new ZipArchive(strm))
                 ZipArchiveExtensions.ExtractToDirectory(archive, install_path, true);
 
+            updateActionLabel("Updating CODEx config file");
             ini.IniWriteValue("VERSION", "CurrentVersion", new WebClient().DownloadString(ini.IniReadValue("VERSION", "LastestVersionUrl")));
+            updateActionLabel("Update is done");
+            pnl_loading.Dispose();
             btn_end.Visible = true;
+            timer_update.Stop();
         }
 
-        private void btn_end_Click(object sender, EventArgs e)
+        void updateActionLabel(string content)
         {
-            Process.Start($"{Directory.GetCurrentDirectory()}\\CODEX.exe");
-            Application.Exit();
+            lbl_action.Text = content;
+            lbl_action.Refresh();
         }
     }
 }

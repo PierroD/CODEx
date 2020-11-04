@@ -14,6 +14,14 @@
 #ignore packages
 packages
 
-#ingore ini files (.ini)
-*.ini
+#ignore ini files (.ini)
+#*.ini
 
+#ignore Release
+CODEX/bin/Release/
+CODEXUpdater/bin/Release/
+CODEXOffsets/bin/Release/
+
+CODEX/obj/Release/
+CODEXUpdater/obj/Release/
+CODEXOffsets/obj/Release/

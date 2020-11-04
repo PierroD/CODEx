@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("CODEX")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("CODEx")]
+[assembly: AssemblyDescription("Call of Duty External Console")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CODEX")]
+[assembly: AssemblyCompany("LINDRA")]
+[assembly: AssemblyProduct("CODEx")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("41e1dea0-0d49-4420-8ff3-210babe9b14e")]
+[assembly: Guid("c5729283-972d-45f0-94e3-5b28057512d3")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //

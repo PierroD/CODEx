@@ -42,7 +42,7 @@ namespace CODEX.Views.Settings
         }
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Process.Start($"{Directory.GetCurrentDirectory()}\\CODEXUpdater.exe");
+            Process.Start($"{Directory.GetCurrentDirectory()}\\CODExUpdater.exe");
             Application.Exit();
         }
 
@@ -53,7 +53,7 @@ namespace CODEX.Views.Settings
             string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\CODEx.lnk";
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
             shortcut.Description = "New shortcut for CODEx";
-            shortcut.TargetPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\CODEX.exe";
+            shortcut.TargetPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\CODEx.exe";
             shortcut.Save();
         }
 
