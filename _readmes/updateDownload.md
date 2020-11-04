@@ -1,1 +1,1 @@
-https://github.com/PierroD/TinyWeather/raw/master/TinyWeather/bin/Release/TinyWeather.zip
+https://raw.githubusercontent.com/PierroD/TinyWeather/master/TinyWeather/bin/Release/TinyWeather.zip
