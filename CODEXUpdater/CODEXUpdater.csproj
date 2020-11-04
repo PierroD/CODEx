@@ -101,6 +101,7 @@
       <DependentUpon>uc_Loading.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SwitchUserControl.cs" />
+    <Compile Include="Utils\ZipArchiveExtensions.cs" />
     <EmbeddedResource Include="frm_Updater.resx">
       <DependentUpon>frm_Updater.cs</DependentUpon>
     </EmbeddedResource>

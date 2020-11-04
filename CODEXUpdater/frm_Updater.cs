@@ -54,10 +54,9 @@ namespace CODEXUpdater
             lbl_action.Text = "Extracting files and updating CODEx";
             string install_path = Directory.GetCurrentDirectory();
             using (var strm = File.OpenRead(zip_path))
-            using (ZipArchive a = new ZipArchive(strm))
-            {
-                a.Entries.Where(o => o.Name != string.Empty).ToList().ForEach(f => f.ExtractToFile(Path.Combine(install_path, f.FullName), true));
-            }
+            using (ZipArchive archive = new ZipArchive(strm))
+                ZipArchiveExtensions.ExtractToDirectory(archive, install_path, true);
+
             ini.IniWriteValue("VERSION", "CurrentVersion", new WebClient().DownloadString(ini.IniReadValue("VERSION", "LastestVersionUrl")));
             btn_end.Visible = true;
         }
