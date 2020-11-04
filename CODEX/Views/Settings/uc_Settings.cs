@@ -114,8 +114,11 @@ namespace CODEX.Views.Settings
         /// </summary>
         void UpdateChanges()
         {
+            string[] lines;
             using (var wc = new System.Net.WebClient())
-                tbox_updates.Text = wc.DownloadString(ini.IniReadValue("VERSION", "UpdateChangesUrl")).Replace('#', ' ');
+                lines = wc.DownloadString(ini.IniReadValue("VERSION", "UpdateChangesUrl")).Replace("#",String.Empty).Split(new[] { '\r', '\n' });
+            foreach (string line in lines)
+                tbox_updates.Text += line + Environment.NewLine;
         }
         #endregion
     }

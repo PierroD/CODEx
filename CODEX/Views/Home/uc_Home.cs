@@ -214,6 +214,7 @@ namespace CODEX.Views.Home
                 var configFile = JsonConvert.DeserializeObject<SavingJson>(File.ReadAllText(file));
                 lbl_configName.Text += $" {Path.GetFileName(configFile.CfgPath)}";
                 tbox_console.Text += File.ReadAllText(configFile.CfgPath);
+                tbox_configName.Clear();
                 tbox_configName.Text += $" {Path.GetFileNameWithoutExtension(configFile.CfgPath)}";
                 foreach (Macro macro in configFile.Macros)
                 {
