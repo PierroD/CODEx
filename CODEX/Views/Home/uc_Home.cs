@@ -212,14 +212,24 @@ namespace CODEX.Views.Home
         {
             foreach (string file in filenames)
             {
-                var configFile = JsonConvert.DeserializeObject<SavingJson>(File.ReadAllText(file));
-                lbl_configName.Text += $" {Path.GetFileName(configFile.CfgPath)}";
-                tbox_console.Text += File.ReadAllText(configFile.CfgPath);
-                tbox_configName.Clear();
-                tbox_configName.Text += $" {Path.GetFileNameWithoutExtension(configFile.CfgPath)}";
-                foreach (Macro macro in configFile.Macros)
+                if (filenames.Contains(".json"))
                 {
-                    addMacro(macro.CfgPath, macro.Key);
+                    var configFile = JsonConvert.DeserializeObject<SavingJson>(File.ReadAllText(file));
+                    lbl_configName.Text += $" {Path.GetFileName(configFile.CfgPath)}";
+                    tbox_console.Text += File.ReadAllText(configFile.CfgPath);
+                    tbox_configName.Clear();
+                    tbox_configName.Text += $" {Path.GetFileNameWithoutExtension(configFile.CfgPath)}";
+                    foreach (Macro macro in configFile.Macros)
+                    {
+                        addMacro(macro.CfgPath, macro.Key);
+                    }
+                }
+                else
+                {
+                    lbl_configName.Text += $" {Path.GetFileName(file)}";
+                    tbox_console.Text += File.ReadAllText(file);
+                    tbox_configName.Clear();
+                    tbox_configName.Text += $" {Path.GetFileNameWithoutExtension(file)}";
                 }
             }
         }

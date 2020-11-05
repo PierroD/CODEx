@@ -303,8 +303,7 @@
             // ofd_home
             // 
             this.ofd_home.DefaultExt = "json";
-            this.ofd_home.FileName = "openFileDialog1";
-            this.ofd_home.Filter = "json files (*.json)|*.json";
+            this.ofd_home.Filter = "JSON Files|*.json|CFG Files|*.cfg";
             this.ofd_home.Multiselect = true;
             this.ofd_home.Title = "CODEx open config files";
             // 
