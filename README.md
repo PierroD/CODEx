@@ -4,7 +4,7 @@ Is a **C**all **o**f **D**uty **Ex**ternal Console, after several months of work
 ## Table of contents
 
 - [Quick start](#tc1)
-- [Q&A](./_readmes/CODEXQA.md)
+- [Q&A](./_readmes/CODExQA.md)
 - [What's included](#tc2)
 - [Documentation](#tc3)
 - [Creator](#tc4)
@@ -92,9 +92,11 @@ Coder & Designer :
 
 Josh aka GRIIM (helping me for the ExternalConsole class)
 - https://twitter.com/GRIIMtB
+
 Jim aka Gmzorz (for a part of the DVAR)
 - http://gmzorz.weebly.com/
 - https://twitter.com/Gmzorz
+
 Team A (Amyst, AUTH, Airyz, A1mini, Ark) (for the idea)
 
 - http://airyz.xyz/bo2-streams.html

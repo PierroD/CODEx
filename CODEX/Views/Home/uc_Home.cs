@@ -149,6 +149,7 @@ namespace CODEX.Views.Home
             ni_home.BalloonTipTitle = tipTitle;
             ni_home.Visible = true;
             ni_home.ShowBalloonTip(1000, tipTitle, tipText, ToolTipIcon.Info);
+            ni_home.Visible = false;
         }
         #endregion
 

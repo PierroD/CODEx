@@ -8,15 +8,15 @@ I wanted to create something bigger called **TCUN** (**T**he **C**heat **U** **N
 - A FPSUnlocker
 - A Force Host
 
-I spend 2 years designing TCUN because I really wanted something beautifull and usefull at the same time, I actually create 3 versions of TCUN 
+I spend 2 years designing & coding TCUN because I really wanted something beautifull and usefull at the same time, I actually create 3 versions of TCUN 
 
-#### TCUN v1 (2 years old)
+#### TCUN v1 (2018 - 2 years old)
 ![](../_images/TCUNV1.jpg)
 
-#### TCUN v2 (1 year old)
+#### TCUN v2 (2019 - 1 year old)
 ![](../_images/TCUNV2.jpg)
 
-#### TCUN v3 (6 months old)
+#### TCUN v3 (april 2020 - 6 months old)
 ![](../_images/TCUNV3-1.jpg)
 ![](../_images/TCUNV3-2.jpg)
 ![](../_images/TCUNV3-3.jpg)

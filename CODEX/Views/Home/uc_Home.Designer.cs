@@ -256,7 +256,6 @@
             this.ni_home.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ni_home.Icon = ((System.Drawing.Icon)(resources.GetObject("ni_home.Icon")));
             this.ni_home.Text = "CODEx";
-            this.ni_home.Visible = true;
             // 
             // cbox_keys
             // 

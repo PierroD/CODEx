@@ -98,7 +98,6 @@
             this.ni_searchModel.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ni_searchModel.Icon = ((System.Drawing.Icon)(resources.GetObject("ni_searchModel.Icon")));
             this.ni_searchModel.Text = "CODEx";
-            this.ni_searchModel.Visible = true;
             // 
             // uc_SearchModel
             // 

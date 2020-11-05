@@ -46,6 +46,7 @@ namespace CODEX.Views.Search.SearchModel
             ni_searchModel.BalloonTipTitle = tipTitle;
             ni_searchModel.Visible = true;
             ni_searchModel.ShowBalloonTip(1000, tipTitle, tipText, ToolTipIcon.Info);
+            ni_searchModel.Visible = false;
         }
         #endregion
     }
