@@ -8,6 +8,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,11 +35,11 @@ namespace CODEXUpdater
 
         private void btn_end_Click(object sender, EventArgs e)
         {
-            Process.Start($"{Directory.GetCurrentDirectory()}\\CODEx.exe");
+            Process.Start($"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\CODEx.exe");
             Application.Exit();
         }
 
-        private static string configIniPath = $"{Directory.GetCurrentDirectory()}\\config.ini";
+        private static string configIniPath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\config.ini";
         INIFile ini = new INIFile(configIniPath);
         private string tempFolder = Path.GetTempPath() + "CODEX";
         private void timer_update_Tick(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace CODEXUpdater
                     );
             }
             updateActionLabel("Extracting files and updating CODEx");
-            string install_path = Directory.GetCurrentDirectory();
+            string install_path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             using (var strm = File.OpenRead(zip_path))
             using (ZipArchive archive = new ZipArchive(strm))
                 ZipArchiveExtensions.ExtractToDirectory(archive, install_path, true);

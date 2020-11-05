@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using CODEX.Views.Search.SearchModel;
+using System.Reflection;
 
 namespace CODEX.Views.Search
 {
@@ -20,7 +21,7 @@ namespace CODEX.Views.Search
             InitializeComponent();
         }
 
-        private static string JSONPath = $"{Directory.GetCurrentDirectory() }\\DVARList";
+        private static string JSONPath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) }\\DVARList";
         private DVARList DvarLists;
         private void uc_Search_Load(object sender, EventArgs e)
         {

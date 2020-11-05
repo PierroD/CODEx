@@ -42,7 +42,7 @@ namespace CODEX.Views.Settings
         }
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Process.Start($"{Directory.GetCurrentDirectory()}\\CODExUpdater.exe");
+            Process.Start($"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\CODExUpdater.exe");
             Application.Exit();
         }
 
@@ -58,7 +58,7 @@ namespace CODEX.Views.Settings
         }
 
         #region configPath & CheckIfConfigFolderExist
-        private static string configIniPath = $"{Directory.GetCurrentDirectory()}\\config.ini";
+        private static string configIniPath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\config.ini";
         INIFile ini = new INIFile(configIniPath);
 
 
