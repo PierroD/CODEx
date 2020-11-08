@@ -65,6 +65,7 @@ namespace CODEXUpdater
                     );
             }
             updateActionLabel("Extracting files and updating CODEx");
+
             string install_path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             using (var strm = File.OpenRead(zip_path))
             using (ZipArchive archive = new ZipArchive(strm))
