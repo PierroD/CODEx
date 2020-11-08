@@ -12,7 +12,7 @@ Is a **C**all **o**f **D**uty **Ex**ternal Console, after several months of work
 
 ## Quick start <a name="tc1"></a>
 
-- [Download the lastest version](https://raw.githubusercontent.com/PierroD/CODEx/main/_updates/CODEx%20v1.1.1.zip)
+- [Download the lastest version](https://raw.githubusercontent.com/PierroD/CODEx/main/_updates/CODEx%20v1.0.zip) - some updates might be needed
 - Unzip the archive somehere on your computer
 - Start CODEx.exe
 - Enjoy :smiley:
