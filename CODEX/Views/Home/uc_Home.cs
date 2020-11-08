@@ -33,6 +33,7 @@ namespace CODEX.Views.Home
         private void cbox_config_Click(object sender, EventArgs e)
         {
             cbox_config.Items.Clear();
+            cbox_config.Items.Add("Self");
             string configFolder = ConfigPath();
             configs = Directory.GetFiles(configFolder, "*.cfg");
             foreach (string config in configs)
@@ -52,7 +53,11 @@ namespace CODEX.Views.Home
 
         private void btn_addMacro_Click(object sender, EventArgs e)
         {
-            addMacro(configs[cbox_config.SelectedIndex], KeyStringToInt(cbox_keys.Text));
+            if (!cbox_config.Text.Equals("Self"))
+                addMacro(configs[cbox_config.SelectedIndex], KeyStringToInt(cbox_keys.Text));
+            else
+                addMacro("Self", KeyStringToInt(cbox_keys.Text));
+
         }
 
         private void btn_loadConfig_Click(object sender, EventArgs e)
@@ -112,7 +117,8 @@ namespace CODEX.Views.Home
             SavingJson savingJson = new SavingJson();
             string configFolder = ConfigPath();
             string[] configs = Directory.GetFiles(configFolder);
-            if (configs.Where(c => Path.GetFileNameWithoutExtension(c) == configName).Count() > 0)
+
+            if (configs.Where(c => Path.GetFileNameWithoutExtension(c).Equals(configName)).Count() > 0)
             {
                 File.Delete($"{configFolder}\\{configName}.json");
                 File.Delete($"{configFolder}\\{configName}.cfg");
@@ -126,7 +132,13 @@ namespace CODEX.Views.Home
                 }
             }
 
-            savingJson.Macros = GetMacros();
+            savingJson.Macros = new List<Macro>();
+            foreach (Macro macro in GetMacros())
+            {
+                if (macro.CfgPath == "Self")
+                    macro.CfgPath = $"{configFolder}\\{configName.Replace(" ", String.Empty)}.cfg";
+                savingJson.Macros.Add(macro);
+            }
             using (JsonWriter writer = new JsonTextWriter(new StreamWriter($"{configFolder}\\{configName}.json")))
             {
                 new JsonSerializer().Serialize(writer, savingJson);
@@ -212,13 +224,13 @@ namespace CODEX.Views.Home
         {
             foreach (string file in filenames)
             {
-                if (filenames.Contains(".json"))
+                if (file.Contains(".json"))
                 {
                     var configFile = JsonConvert.DeserializeObject<SavingJson>(File.ReadAllText(file));
                     lbl_configName.Text += $" {Path.GetFileName(configFile.CfgPath)}";
                     tbox_console.Text += File.ReadAllText(configFile.CfgPath);
                     tbox_configName.Clear();
-                    tbox_configName.Text += $" {Path.GetFileNameWithoutExtension(configFile.CfgPath)}";
+                    tbox_configName.Text += $"{Path.GetFileNameWithoutExtension(configFile.CfgPath)}";
                     foreach (Macro macro in configFile.Macros)
                     {
                         addMacro(macro.CfgPath, macro.Key);
@@ -274,8 +286,8 @@ namespace CODEX.Views.Home
         /// <param name="dvars"></param>
         private void SendDvarToGame(string[] dvars)
         {
-            string command="";
-            foreach(string dvar in dvars)
+            string command = "";
+            foreach (string dvar in dvars)
             {
                 command += $"{dvar};";
             }
