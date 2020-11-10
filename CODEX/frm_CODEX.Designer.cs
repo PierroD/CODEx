@@ -42,6 +42,7 @@
             this.lbl_title = new Guna.UI.WinForms.GunaLabel();
             this.pnl_sidebar = new Guna.UI.WinForms.GunaGradient2Panel();
             this.pnl_topRight = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pbox_show_notification = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.pbox_notification = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_minimize = new Guna.UI.WinForms.GunaControlBox();
             this.btn_close = new Guna.UI.WinForms.GunaControlBox();
@@ -53,15 +54,14 @@
             this.drag_topRight = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.drag_left = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.pnl_main = new Guna.UI.WinForms.GunaPanel();
-            this.pbox_show_notification = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.pnl_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).BeginInit();
             this.pnl_topRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_notification)).BeginInit();
             this.pnl_topMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_top)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).BeginInit();
             this.SuspendLayout();
             // 
             // CodexElipse
@@ -263,6 +263,20 @@
             this.pnl_topRight.Size = new System.Drawing.Size(304, 100);
             this.pnl_topRight.TabIndex = 2;
             // 
+            // pbox_show_notification
+            // 
+            this.pbox_show_notification.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.pbox_show_notification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbox_show_notification.Location = new System.Drawing.Point(79, 56);
+            this.pbox_show_notification.Name = "pbox_show_notification";
+            this.pbox_show_notification.Size = new System.Drawing.Size(10, 10);
+            this.pbox_show_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbox_show_notification.TabIndex = 3;
+            this.pbox_show_notification.TabStop = false;
+            this.pbox_show_notification.UseTransfarantBackground = false;
+            this.pbox_show_notification.Visible = false;
+            this.pbox_show_notification.Click += new System.EventHandler(this.pbox_notification_Click);
+            // 
             // pbox_notification
             // 
             this.pbox_notification.BaseColor = System.Drawing.Color.White;
@@ -274,6 +288,7 @@
             this.pbox_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbox_notification.TabIndex = 2;
             this.pbox_notification.TabStop = false;
+            this.pbox_notification.Visible = false;
             this.pbox_notification.Click += new System.EventHandler(this.pbox_notification_Click);
             // 
             // btn_minimize
@@ -368,19 +383,6 @@
             this.pnl_main.Size = new System.Drawing.Size(751, 512);
             this.pnl_main.TabIndex = 4;
             // 
-            // pbox_show_notification
-            // 
-            this.pbox_show_notification.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.pbox_show_notification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbox_show_notification.Location = new System.Drawing.Point(79, 56);
-            this.pbox_show_notification.Name = "pbox_show_notification";
-            this.pbox_show_notification.Size = new System.Drawing.Size(10, 10);
-            this.pbox_show_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbox_show_notification.TabIndex = 3;
-            this.pbox_show_notification.TabStop = false;
-            this.pbox_show_notification.UseTransfarantBackground = false;
-            this.pbox_show_notification.Click += new System.EventHandler(this.pbox_notification_Click);
-            // 
             // frm_CODEX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,11 +404,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbox_icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).EndInit();
             this.pnl_topRight.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_notification)).EndInit();
             this.pnl_topMiddle.ResumeLayout(false);
             this.pnl_topMiddle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_top)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).EndInit();
             this.ResumeLayout(false);
 
         }

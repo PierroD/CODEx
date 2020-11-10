@@ -26,6 +26,7 @@ namespace CODEX
         {
             // loadingAnimation();
             btn_Home.PerformClick();
+            checkUpdate();
         }
 
         #region sidebar
