@@ -206,6 +206,7 @@
   <ItemGroup>
     <Content Include="CODEXIcon.ico" />
     <Content Include="CODEXLogo_1.ico" />
+    <None Include="Resources\notification.png" />
     <None Include="Resources\CODEXLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

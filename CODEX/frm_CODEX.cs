@@ -11,6 +11,7 @@ using Guna.UI.WinForms;
 using System.Reflection;
 using SwitchUserControl;
 using CODEX.Utils;
+using System.IO;
 
 namespace CODEX
 {
@@ -23,8 +24,8 @@ namespace CODEX
 
         private void CODEX_Load(object sender, EventArgs e)
         {
-           // loadingAnimation();
-           btn_Home.PerformClick();
+            // loadingAnimation();
+            btn_Home.PerformClick();
         }
 
         #region sidebar
@@ -60,6 +61,11 @@ namespace CODEX
             }
         }
 
+        private void pbox_notification_Click(object sender, EventArgs e)
+        {
+            btn_Settings.PerformClick();
+        }
+
         private UserControl CreateUserControl(string usercontrolName)
         {
             return (UserControl)Assembly.GetExecutingAssembly().CreateInstance($"CODEX.Views.{usercontrolName}.uc_{usercontrolName}"); ;
@@ -67,13 +73,29 @@ namespace CODEX
 
         #endregion
 
-        #region loading animation
-       public void loadingAnimation()
+        #region  checkUpdate
+        private static string configIniPath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\config.ini";
+        INIFile ini = new INIFile(configIniPath);
+        void checkUpdate()
         {
-            pbox_top.Image = Properties.Resources.loading;
-            lbl_top.Text = "Loading";
-            LoadingAnimation.loading(pnl_main);
+            string lastestVersion;
+            using (var wc = new System.Net.WebClient())
+                lastestVersion = wc.DownloadString(ini.IniReadValue("VERSION", "LastestVersionUrl"));
+            if (!ini.IniReadValue("VERSION", "CurrentVersion").Equals(lastestVersion))
+            {
+                pbox_notification.Visible = true;
+                pbox_show_notification.Visible = true;
+            }
         }
-        #endregion
+            #endregion
+
+        #region loading animation
+            public void loadingAnimation()
+            {
+                pbox_top.Image = Properties.Resources.loading;
+                lbl_top.Text = "Loading";
+                LoadingAnimation.loading(pnl_main);
+            }
+            #endregion
+        }
     }
-}

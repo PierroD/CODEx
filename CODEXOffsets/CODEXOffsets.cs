@@ -5,8 +5,8 @@ using CODEXOffsets.Utils;
 namespace CODEXOffsets
 {
     public class COD
-    {                           // mw2   ,  mw3   , bo2   , 
-        static string[] games = { "iw4mp", "iw5mp", "t6mp" };  
+    {                           // cod4mw, mw2   ,  mw3   , bo2mp, bo2zm, 
+        static string[] games = {"iw3mp", "iw4mp", "iw5mp", "t6mp", "t6zm" };  
         static Type CallofDuty;
         static string gameName;
         public static bool checkGame()
@@ -38,12 +38,16 @@ namespace CODEXOffsets
         {
             switch (COD.GameName())
             {
+                case "iw3mp":
+                    return "Call of Duty 4 Modern Warfare - Multiplayer";
                 case "iw4mp":
                     return "Call of Duty Modern Warfare 2 - Multiplayer";
                 case "iw5mp":
                     return "Call of Duty Modern Warfare 3 - Multiplayer";
                 case "t6mp":
                     return "Call of Duty BlackOps 2 - Multiplayer";
+                case "t6zm":
+                    return "Call of Duty BlackOps 2 - Zombies";
                 default:
                     return "No game detected";
             }
