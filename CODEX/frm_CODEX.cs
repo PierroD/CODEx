@@ -84,8 +84,8 @@ namespace CODEX
                 lastestVersion = wc.DownloadString(ini.IniReadValue("VERSION", "LastestVersionUrl"));
             if (!ini.IniReadValue("VERSION", "CurrentVersion").Equals(lastestVersion))
             {
-                pbox_notification.Visible = true;
                 pbox_show_notification.Visible = true;
+                pbox_notification.Visible = true;
             }
         }
             #endregion
