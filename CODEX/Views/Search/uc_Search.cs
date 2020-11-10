@@ -44,7 +44,7 @@ namespace CODEX.Views.Search
             {
                 Game game = new Game();
                 game.GameName = Path.GetFileNameWithoutExtension(folderPath); ;
-                string[] files = Directory.GetFiles(folderPath);
+                string[] files = Directory.GetFiles(folderPath,"*.json");
                 foreach (string filePath in files)
                 {
                    var commands = JsonConvert.DeserializeObject<List<Command>>(File.ReadAllText(filePath));
