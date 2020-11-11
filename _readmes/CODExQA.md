@@ -17,12 +17,14 @@ Yes, and No.
 
 You have to understand, that you will be `cheating, hacking` while using it, I would not be responsable if you get VACBan because of CODEx
 
-## Which game is supported by CODEx <a name="qa2"></a>
+## Which games are supported by CODEx <a name="qa2"></a>
 
 At this time being it only supports the following games :
+- Call of Duty 4 Modern Warfare - Multiplayer
 - Call of Duty Modern Warfare 2 - Multiplayer
 - Call of Duty Modern Warfare 3 - Multiplayer
 - Call of Duty Black Ops 2 - Multiplayer
+- Call of Duty Black Ops 2 - Zombies
 
 ##  My anti-virus software show CODEx as a virus is it normal ? <a name="qa3"></a>
 

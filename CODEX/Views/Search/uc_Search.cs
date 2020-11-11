@@ -44,10 +44,10 @@ namespace CODEX.Views.Search
             {
                 Game game = new Game();
                 game.GameName = Path.GetFileNameWithoutExtension(folderPath); ;
-                string[] files = Directory.GetFiles(folderPath,"*.json");
+                string[] files = Directory.GetFiles(folderPath, "*.json");
                 foreach (string filePath in files)
                 {
-                   var commands = JsonConvert.DeserializeObject<List<Command>>(File.ReadAllText(filePath));
+                    var commands = JsonConvert.DeserializeObject<List<Command>>(File.ReadAllText(filePath));
                     if (game.Commands != null)
                         game.Commands.Concat(commands);
                     else
@@ -105,7 +105,7 @@ namespace CODEX.Views.Search
             List<uc_SearchModel> searchResult = new List<uc_SearchModel>();
             foreach (Command command in commands)
             {
-              searchResult.Add(new uc_SearchModel
+                searchResult.Add(new uc_SearchModel
                 {
                     dvarName = command.Content,
                     dvarDescription = command.Description
