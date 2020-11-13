@@ -17,3 +17,6 @@
 - Add : Credits for the configs (only visible if you go to the DVARList/{game} folder)
 - Fix : BO2 DVAR List is Gmzorz's one
 
+#### v1.3.2 Small adds & Fixes
+- Add : BO1 game
+- Fix : BO2 was crashing while using CODEx

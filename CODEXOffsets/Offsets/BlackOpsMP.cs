@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using CODEXOffsets.Interface;
 
+
 namespace CODEXOffsets.Offsets
 {
-    class t6mp : IOffsets
+    class BlackOpsMP : IOffsets
     {
-        public int cbuf_addtext { get { return 0x5BDF70; } }
+        public int cbuf_addtext { get { return 0x56EF70; } }
     }
 }

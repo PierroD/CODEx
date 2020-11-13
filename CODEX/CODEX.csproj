@@ -38,7 +38,7 @@
   <ItemGroup>
     <Reference Include="CODEXOffsets, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CODEXOffsets\bin\Debug\netstandard2.0\CODEXOffsets.dll</HintPath>
+      <HintPath>..\CODEXOffsets\bin\Release\netstandard2.0\CODEXOffsets.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\Light\Downloads\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>

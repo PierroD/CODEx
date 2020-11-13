@@ -83,7 +83,8 @@ namespace CODEX.Views.Home
         #endregion
         private void timer_macro_Tick(object sender, EventArgs e)
         {
-            lbl_gameName.Text = COD.LongGameName();
+            if(COD.checkGame())
+                lbl_gameName.Text = COD.LongGameName();
             foreach (Macro macro in GetMacros())
             {
                 if (GetAsyncKeyState((Keys)Enum.Parse(typeof(Keys), ((Keys)macro.Key).ToString())))
