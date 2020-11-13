@@ -1,4 +1,4 @@
-![](../_images/CODEx.jpg)
+![](./_images/CODEx.jpg)
 
 ## CODEx
 Is a **C**all **o**f **D**uty **Ex**ternal Console, after several months of work I decided to release it as open source, if you want to learn a bit more about CODEx you can read it's history [here](./_readmes/CODExHistory.md) 
