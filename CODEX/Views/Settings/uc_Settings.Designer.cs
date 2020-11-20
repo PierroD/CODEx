@@ -37,7 +37,6 @@
             this.lbl_DesktopShortcut = new Guna.UI.WinForms.GunaLabel();
             this.gunaSeparator3 = new Guna.UI.WinForms.GunaSeparator();
             this.lbl_titleUpdates = new Guna.UI.WinForms.GunaLabel();
-            this.tbox_updates = new System.Windows.Forms.TextBox();
             this.lbl_titleCurrentVerison = new Guna.UI.WinForms.GunaLabel();
             this.lbl_currentVerison = new Guna.UI.WinForms.GunaLabel();
             this.lbl_lastestVersion = new Guna.UI.WinForms.GunaLabel();
@@ -46,6 +45,7 @@
             this.btn_update = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_selectConfigFolder = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_createShortcut = new Guna.UI.WinForms.GunaGradientButton();
+            this.web_updates = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // tbox_configFolderPath
@@ -136,19 +136,6 @@
             this.lbl_titleUpdates.TabIndex = 18;
             this.lbl_titleUpdates.Text = "Updates";
             // 
-            // tbox_updates
-            // 
-            this.tbox_updates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tbox_updates.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbox_updates.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbox_updates.ForeColor = System.Drawing.Color.White;
-            this.tbox_updates.Location = new System.Drawing.Point(373, 306);
-            this.tbox_updates.Multiline = true;
-            this.tbox_updates.Name = "tbox_updates";
-            this.tbox_updates.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbox_updates.Size = new System.Drawing.Size(363, 197);
-            this.tbox_updates.TabIndex = 20;
-            // 
             // lbl_titleCurrentVerison
             // 
             this.lbl_titleCurrentVerison.AutoSize = true;
@@ -198,7 +185,7 @@
             this.lbl_updatesChanges.AutoSize = true;
             this.lbl_updatesChanges.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_updatesChanges.ForeColor = System.Drawing.Color.White;
-            this.lbl_updatesChanges.Location = new System.Drawing.Point(370, 276);
+            this.lbl_updatesChanges.Location = new System.Drawing.Point(332, 260);
             this.lbl_updatesChanges.Name = "lbl_updatesChanges";
             this.lbl_updatesChanges.Size = new System.Drawing.Size(109, 17);
             this.lbl_updatesChanges.TabIndex = 25;
@@ -303,11 +290,21 @@
             this.btn_createShortcut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_createShortcut.Click += new System.EventHandler(this.btn_createShortcut_Click);
             // 
+            // web_updates
+            // 
+            this.web_updates.Location = new System.Drawing.Point(335, 296);
+            this.web_updates.MinimumSize = new System.Drawing.Size(20, 20);
+            this.web_updates.Name = "web_updates";
+            this.web_updates.Size = new System.Drawing.Size(400, 202);
+            this.web_updates.TabIndex = 28;
+            this.web_updates.Url = new System.Uri("http://s", System.UriKind.Absolute);
+            // 
             // uc_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.web_updates);
             this.Controls.Add(this.btn_createShortcut);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.lbl_updatesChanges);
@@ -315,7 +312,6 @@
             this.Controls.Add(this.lbl_titleLastestVersion);
             this.Controls.Add(this.lbl_currentVerison);
             this.Controls.Add(this.lbl_titleCurrentVerison);
-            this.Controls.Add(this.tbox_updates);
             this.Controls.Add(this.gunaSeparator3);
             this.Controls.Add(this.lbl_titleUpdates);
             this.Controls.Add(this.lbl_DesktopShortcut);
@@ -344,7 +340,6 @@
         private Guna.UI.WinForms.GunaLabel lbl_DesktopShortcut;
         private Guna.UI.WinForms.GunaSeparator gunaSeparator3;
         private Guna.UI.WinForms.GunaLabel lbl_titleUpdates;
-        private System.Windows.Forms.TextBox tbox_updates;
         private Guna.UI.WinForms.GunaLabel lbl_titleCurrentVerison;
         private Guna.UI.WinForms.GunaLabel lbl_currentVerison;
         private Guna.UI.WinForms.GunaLabel lbl_lastestVersion;
@@ -352,5 +347,6 @@
         private Guna.UI.WinForms.GunaLabel lbl_updatesChanges;
         private Guna.UI.WinForms.GunaGradientButton btn_update;
         private Guna.UI.WinForms.GunaGradientButton btn_createShortcut;
+        private System.Windows.Forms.WebBrowser web_updates;
     }
 }

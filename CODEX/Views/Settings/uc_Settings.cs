@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Reflection;
 using IWshRuntimeLibrary;
 
+
 namespace CODEX.Views.Settings
 {
     public partial class uc_Settings : UserControl
@@ -114,11 +115,10 @@ namespace CODEX.Views.Settings
         /// </summary>
         void UpdateChanges()
         {
-            string[] lines;
+            string updates;
             using (var wc = new System.Net.WebClient())
-                lines = wc.DownloadString(ini.IniReadValue("VERSION", "UpdateChangesUrl")).Replace("#",String.Empty).Split(new[] { '\r', '\n' });
-            foreach (string line in lines)
-                tbox_updates.Text += line + Environment.NewLine;
+                updates = wc.DownloadString(ini.IniReadValue("VERSION", "UpdateChangesUrl"));
+            web_updates.DocumentText = Markdig.Markdown.ToHtml(updates + "<body style='background-color:#181818; color:white'></body>");
         }
         #endregion
     }
