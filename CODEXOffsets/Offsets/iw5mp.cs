@@ -8,5 +8,7 @@ namespace CODEXOffsets.Offsets
     class iw5mp : IOffsets
     {
         public int cbuf_addtext { get { return 0x545650; } }
+        public int nop_address { get { return 0x0; } }
+
     }
 }

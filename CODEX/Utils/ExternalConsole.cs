@@ -12,90 +12,62 @@ namespace CODEX.Utils
 {
     public class ExternalConsole
     {
-        #region DLLImports
-        [DllImport("kernel32")]
-        public static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, out IntPtr lpThreadId);
-
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [Out] byte[] lpBuffer, int dwSize, [Out] int lpNumberOfBytesRead);
-
-        [DllImport("kernel32.dll")]
-        private static extern int ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] buffer, uint size, out IntPtr lpNumberOfBytesWritten);
-
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool VirtualFreeEx(IntPtr hProcess, IntPtr lpAddress, UIntPtr dwSize, uint dwFreeType);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, uint nSize, [Out] int lpNumberOfBytesWritten);
-
-        [DllImport("kernel32.dll")]
-        private static extern int WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] buffer, uint size, out IntPtr lpNumberOfBytesWritten);
-        #endregion
-
+ 
         #region Variable Declarations
-        private static byte[] WrapperTocBuf_AddText = new byte[] {
-            0x55, 0x8b, 0xec, 0x83, 0xec, 8, 0xc7, 0x45, 0xf8, 0, 0, 0, 0, 0xc7, 0x45, 0xfc,
-            0, 0, 0, 0, 0xff, 0x75, 0xf8, 0x6a, 0, 0xff, 0x55, 0xfc, 0x83, 0xc4, 8, 0x8b,
-            0xe5, 0x5d, 0xc3
+        private static byte[] cbuf_addtext_wrapper = new byte[] {
+        0x55,
+        0x8B, 0xEC,
+        0x83, 0xEC, 0x8,
+        0xC7, 0x45, 0xF8, 0x0, 0x0, 0x0, 0x0,
+        0xC7, 0x45, 0xFC, 0x0, 0x0, 0x0, 0x0,
+        0xFF, 0x75, 0xF8,
+        0x6A, 0x0,
+        0xFF, 0x55, 0xFC,
+        0x83, 0xC4, 0x8,
+        0x8B, 0xE5,
+        0x5D,
+        0xC3
     };
-        private static byte[] WrapperSendToServer = new byte[]
-        {
-            0x55, 0x8b, 0xec, 0x83, 0xec, 8, 0xc7, 0x45, 0xf8, 0, 0, 0, 0, 0xc7, 0x45, 0xfc,
-            0, 0, 0, 0, 0xff, 0x75, 0xf8, 0x6a, 0, 0x6a, 0, 0xff, 0x55, 0xfc, 0x83, 0xc4,
-            8, 0x8b, 0xe5, 0x5d, 0xc3
-        };
-        private static IntPtr _cBuf_addTextFuncAddress = IntPtr.Zero;
-        private static IntPtr _SV_GameSendServercmdAddress = IntPtr.Zero;
-        private static byte[] callBytes;
-        private static IntPtr cmdAddress = IntPtr.Zero;
-        private static byte[] cmdBytes;
-        private static IntPtr ProcessHandle = IntPtr.Zero;
-        private static int ProcessID = -1;
+        static IntPtr ProcessHandle = IntPtr.Zero;
+        static int ProcessID = -1;
+        static int nop_address;
+        static byte[] callbytes;
+        static IntPtr cbuf_addtext_alloc = IntPtr.Zero;
+        static byte[] commandbytes;
+        static IntPtr commandaddress;
+        static byte[] nopBytes = { 0x90, 0x90 };
+        static Trainer t = new Trainer();
+
         #endregion
 
-        public static void Send(string cmd)
+        public static void Send(string commands)
         {
 
             try
             {
-                if (COD.checkGame())
+                if (COD.checkGame() && commands != String.Empty)
                 {
                     dynamic cod = COD.Game();
-                    callBytes = BitConverter.GetBytes(cod.GetType().GetProperty("cbuf_addtext").GetValue(cod));
-                    Process[] procbyName = Process.GetProcessesByName(COD.GameName());
-                    ProcessID = procbyName[0].Id;
-                    ProcessHandle = OpenProcess(0x1f0fff, false, ProcessID);
-
+                    t.Process_Handle(COD.GameName());
+                    callbytes = BitConverter.GetBytes(cod.GetType().GetProperty("cbuf_addtext").GetValue(cod));
+                    nop_address = cod.GetType().GetProperty("nop_address").GetValue(cod);
+                    t.WriteNOP(nop_address, nopBytes);
+                    cbuf_addtext_alloc = t.MemoryAllocation(cbuf_addtext_wrapper);
+                    commandbytes = Encoding.ASCII.GetBytes(commands);
+                    commandaddress = t.MemoryAllocation(commandbytes);
+                    t.WriteBytes(commandaddress, commandbytes);
+                    Array.Copy(BitConverter.GetBytes(commandaddress.ToInt64()), 0, cbuf_addtext_wrapper, 9, 4);
+                    Array.Copy(callbytes, 0, cbuf_addtext_wrapper, 16, 4); // callbytes
+                    t.WriteBytes(cbuf_addtext_alloc, cbuf_addtext_wrapper);
+                    t.CreateRemoteThread(cbuf_addtext_alloc);
+                    t.FreeMemomryAllocation(cbuf_addtext_alloc, cbuf_addtext_wrapper);
+                    t.FreeMemomryAllocation(commandaddress, commandbytes);
+                    cbuf_addtext_alloc = IntPtr.Zero;
                 }
-                if (cmd == String.Empty)
-                {
+                else if (commands == String.Empty)
                     MessageBox.Show("Please type in a command before pressing Send button", "Error", MessageBoxButtons.OK);
-                }
-
-                if (_cBuf_addTextFuncAddress == IntPtr.Zero)
-                {
-                    IntPtr ptr;
-                    _cBuf_addTextFuncAddress = VirtualAllocEx(ProcessHandle, IntPtr.Zero, (uint)WrapperTocBuf_AddText.Length, 0x3000, 0x40);
-                    cmdBytes = Encoding.ASCII.GetBytes(cmd + '\0');
-                    cmdAddress = VirtualAllocEx(ProcessHandle, IntPtr.Zero, (uint)cmdBytes.Length, 0x3000, 0x40);
-                    WriteProcessMemory(ProcessHandle, cmdAddress, cmdBytes, (uint)cmdBytes.Length, 0);
-                    Array.Copy(BitConverter.GetBytes(cmdAddress.ToInt32()), 0, WrapperTocBuf_AddText, 9, 4);
-                    Array.Copy(callBytes, 0, WrapperTocBuf_AddText, 0x10, 4);
-                    WriteProcessMemory(ProcessHandle, _cBuf_addTextFuncAddress, WrapperTocBuf_AddText, (uint)WrapperTocBuf_AddText.Length, 0);
-                    CreateRemoteThread(ProcessHandle, IntPtr.Zero, 0, _cBuf_addTextFuncAddress, IntPtr.Zero, 0, out ptr);
-                    if ((_cBuf_addTextFuncAddress != IntPtr.Zero) && (cmdAddress != IntPtr.Zero))
-                    {
-                        VirtualFreeEx(ProcessHandle, _cBuf_addTextFuncAddress, (UIntPtr)WrapperTocBuf_AddText.Length, 0x8000);
-                        VirtualFreeEx(ProcessHandle, cmdAddress, (UIntPtr)cmdBytes.Length, 0x8000);
-                    }
-                    _cBuf_addTextFuncAddress = IntPtr.Zero;
-                }
+                else if (!COD.checkGame())
+                    MessageBox.Show("No game detected", "Error", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {

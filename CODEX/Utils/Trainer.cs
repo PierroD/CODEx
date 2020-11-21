@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TCUNFrontEnd.Utils
+namespace CODEX.Utils
 {
 	internal class Trainer
 	{
@@ -16,6 +16,19 @@ namespace TCUNFrontEnd.Utils
 
 		[DllImport("kernel32.dll")]
 		private static extern int WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In] [Out] byte[] buffer, uint size, out IntPtr lpNumberOfBytesWritten);
+		
+		[DllImport("kernel32.dll")]
+		private static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+
+		[DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+		private static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, IntPtr dwSize, uint flAllocationType, uint flProtect);
+		
+		[DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+		private static extern bool VirtualFreeEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, uint dwFreeType);
+
+		[DllImport("kernel32.dll")]
+		static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, out IntPtr lpThreadId);
+
 
 		public bool Process_Handle(string ProcessName)
 		{
@@ -26,7 +39,7 @@ namespace TCUNFrontEnd.Utils
 				{
 					return false;
 				}
-				pHandel = processesByName[0].Handle;
+				pHandel = OpenProcess(0x001f0fff, false, processesByName[0].Id);
 				return true;
 			}
 			catch (Exception ex)
@@ -75,17 +88,14 @@ namespace TCUNFrontEnd.Utils
 			IntPtr lpNumberOfBytesWritten = IntPtr.Zero;
 			WriteProcessMemory(pHandel, (IntPtr)Address, Bytes, (uint)Bytes.Length, out lpNumberOfBytesWritten);
 		}
-
-		public void WriteNOP(int Address)
+		public void WriteBytes(IntPtr Address, byte[] Bytes)
 		{
-			byte[] array = new byte[5]
-			{
-				144,
-				144,
-				144,
-				144,
-				144
-			};
+			IntPtr lpNumberOfBytesWritten = IntPtr.Zero;
+			WriteProcessMemory(pHandel, Address, Bytes, (uint)Bytes.Length, out lpNumberOfBytesWritten);
+		}
+
+		public void WriteNOP(int Address, byte[] array)
+		{
 			IntPtr lpNumberOfBytesWritten = IntPtr.Zero;
 			WriteProcessMemory(pHandel, (IntPtr)Address, array, (uint)array.Length, out lpNumberOfBytesWritten);
 		}
@@ -123,6 +133,21 @@ namespace TCUNFrontEnd.Utils
 		public byte[] ReadBytes(int Address, int Length)
 		{
 			return Read(Address, Length);
+		}
+
+		public IntPtr MemoryAllocation(byte[] array)
+        {
+			return VirtualAllocEx(pHandel, IntPtr.Zero, (IntPtr)(array.Length), 0x1000 | 0x2000, 0x40);
+        }
+		public void FreeMemomryAllocation(IntPtr Address, byte[] array)
+        {
+			VirtualFreeEx(pHandel, Address, array.Length, 0x8000);
+
+		}
+		public void CreateRemoteThread(IntPtr Address)
+        {
+			IntPtr bytesOut;
+			CreateRemoteThread(pHandel, IntPtr.Zero, 0, Address, IntPtr.Zero, 0, out bytesOut);
 		}
 	}
 }

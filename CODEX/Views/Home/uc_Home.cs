@@ -88,7 +88,7 @@ namespace CODEX.Views.Home
             foreach (Macro macro in GetMacros())
             {
                 if (GetAsyncKeyState((Keys)Enum.Parse(typeof(Keys), ((Keys)macro.Key).ToString())))
-                    SendDvarToGame(File.ReadAllLines(macro.CfgPath));
+                    SendDvarToGame(File.ReadAllText(macro.CfgPath));
             }
         }
 
@@ -104,7 +104,7 @@ namespace CODEX.Views.Home
 
         private void btn_sendConsole_Click(object sender, EventArgs e)
         {
-            SendDvarToGame(tbox_console.Lines);
+            SendDvarToGame(tbox_console.Text);
         }
 
 
@@ -285,14 +285,10 @@ namespace CODEX.Views.Home
         /// Send the configs to your call of duty game
         /// </summary>
         /// <param name="dvars"></param>
-        private void SendDvarToGame(string[] dvars)
+        private void SendDvarToGame(string dvars)
         {
-            string command = "";
-            foreach (string dvar in dvars)
-            {
-                command += $"{dvar};";
-            }
-            ExternalConsole.Send(command);
+           // int test = dvars.Count();
+            ExternalConsole.Send($"{dvars};");
         }
         #endregion
     }

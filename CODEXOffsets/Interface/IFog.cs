@@ -4,9 +4,7 @@ using System.Text;
 
 namespace CODEXOffsets.Interface
 {
-    interface IOffsets
+    interface IFog
     {
-        int cbuf_addtext { get; }
-        int nop_address { get; }
     }
 }

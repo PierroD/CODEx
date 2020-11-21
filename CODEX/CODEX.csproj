@@ -83,6 +83,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ExternalConsole - Copy.cs" />
     <Compile Include="Utils\ExternalConsole.cs" />
     <Compile Include="Utils\INIFile.cs" />
     <Compile Include="Utils\LoadingAnimation.cs" />

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Home));
-            this.tbox_console = new System.Windows.Forms.TextBox();
             this.btn_saveConfigFile = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_loadConfig = new Guna.UI.WinForms.GunaGradientButton();
             this.tbox_configName = new Guna.UI.WinForms.GunaTextBox();
@@ -49,20 +48,8 @@
             this.btn_clear = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_addMacro = new Guna.UI.WinForms.GunaGradientButton();
             this.timer_macro = new System.Windows.Forms.Timer(this.components);
+            this.tbox_console = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // tbox_console
-            // 
-            this.tbox_console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tbox_console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbox_console.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbox_console.ForeColor = System.Drawing.Color.White;
-            this.tbox_console.Location = new System.Drawing.Point(13, 21);
-            this.tbox_console.Multiline = true;
-            this.tbox_console.Name = "tbox_console";
-            this.tbox_console.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbox_console.Size = new System.Drawing.Size(437, 428);
-            this.tbox_console.TabIndex = 5;
             // 
             // btn_saveConfigFile
             // 
@@ -376,11 +363,25 @@
             this.timer_macro.Enabled = true;
             this.timer_macro.Tick += new System.EventHandler(this.timer_macro_Tick);
             // 
+            // tbox_console
+            // 
+            this.tbox_console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tbox_console.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbox_console.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbox_console.ForeColor = System.Drawing.Color.White;
+            this.tbox_console.Location = new System.Drawing.Point(13, 21);
+            this.tbox_console.Multiline = true;
+            this.tbox_console.Name = "tbox_console";
+            this.tbox_console.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbox_console.Size = new System.Drawing.Size(437, 428);
+            this.tbox_console.TabIndex = 24;
+            // 
             // uc_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.tbox_console);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.lbl_configName);
             this.Controls.Add(this.lbl_keys);
@@ -396,7 +397,6 @@
             this.Controls.Add(this.tbox_configName);
             this.Controls.Add(this.btn_loadConfig);
             this.Controls.Add(this.btn_saveConfigFile);
-            this.Controls.Add(this.tbox_console);
             this.Name = "uc_Home";
             this.Size = new System.Drawing.Size(751, 512);
             this.ResumeLayout(false);
@@ -405,8 +405,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbox_console;
         private Guna.UI.WinForms.GunaGradientButton btn_saveConfigFile;
         private Guna.UI.WinForms.GunaGradientButton btn_loadConfig;
         private Guna.UI.WinForms.GunaTextBox tbox_configName;
@@ -425,5 +423,6 @@
         private System.Windows.Forms.OpenFileDialog ofd_home;
         private Guna.UI.WinForms.GunaGradientButton btn_clear;
         private System.Windows.Forms.Timer timer_macro;
+        private System.Windows.Forms.TextBox tbox_console;
     }
 }
