@@ -22,6 +22,7 @@ namespace CODEX.Views.Fog
 
         Trainer t = new Trainer();
 
+        #region fog
         private void colorWheel_Fog_ColorChanged(object sender, EventArgs e)
         {
             num_fogRed.Value = (long)colorWheel_Fog.Color.R;
@@ -39,7 +40,7 @@ namespace CODEX.Views.Fog
                 setFogValue("FogFarColorG", num_fogGreen.Value);
                 setFogValue("FogFarColorB", num_fogBlue.Value);
             }
-            if(rbtn_both.Checked)
+            if (rbtn_both.Checked)
             {
                 setFogValue("FogBaseColorR", num_fogRed.Value);
                 setFogValue("FogBaseColorG", num_fogGreen.Value);
@@ -66,7 +67,7 @@ namespace CODEX.Views.Fog
         {
             GunaTrackBar tbar = ((GunaTrackBar)sender);
             string option = tbar.Name.Substring(5);
-            switch(option)
+            switch (option)
             {
                 case "FogBias":
                     this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = (tbar.Value - 37).ToString();
@@ -74,7 +75,7 @@ namespace CODEX.Views.Fog
                     break;
                 case "FogBaseExposure":
                     this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = ((double)tbar.Value / 100).ToString();
-                    setFogValue(option, (tbar.Value /100));
+                    setFogValue(option, (tbar.Value / 100));
                     break;
                 case "FogFarExposure":
                     this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = ((double)tbar.Value / 100).ToString();
@@ -87,14 +88,25 @@ namespace CODEX.Views.Fog
             }
         }
 
-        private void setFogValue(string address, float value)
+        private async void setFogValue(string address, float value)
         {
-            if (COD.checkGame() && COD.GameName() == "t6mp")
+            await Task.Run(() =>
             {
-                dynamic cod = COD.Game();
-                t.Process_Handle(COD.GameName());
-                t.WriteFloat(cod.GetType().GetProperty(address).GetValue(cod), value);
-            }
+                if (COD.checkGame() && COD.GameName() == "t6mp")
+                {
+                    dynamic cod = COD.Game();
+                    t.Process_Handle(COD.GameName());
+                    t.WriteFloat(cod.GetType().GetProperty(address).GetValue(cod), value);
+                }
+            });
+        }
+        #endregion
+
+        private void dofTbars_ToLbls(object sender, EventArgs e)
+        {
+            GunaTrackBar tbar = ((GunaTrackBar)sender);
+            string option = tbar.Name.Substring(5);
+
         }
     }
 }

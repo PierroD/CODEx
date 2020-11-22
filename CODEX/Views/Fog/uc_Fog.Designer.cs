@@ -74,6 +74,13 @@
             this.lbl_valueFogBias = new Guna.UI.WinForms.GunaLabel();
             this.lbl_valueFogBaseExposure = new Guna.UI.WinForms.GunaLabel();
             this.lbl_valueFogFarExposure = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFnearBlur = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFnearStart = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFnearEnd = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFfarBlur = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFfarStart = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFfarEnd = new Guna.UI.WinForms.GunaLabel();
+            this.lbl_valueDOFquality = new Guna.UI.WinForms.GunaLabel();
             this.SuspendLayout();
             // 
             // lbl_fogStart
@@ -398,6 +405,7 @@
             // tbar_DOFnearBlur
             // 
             this.tbar_DOFnearBlur.Location = new System.Drawing.Point(234, 301);
+            this.tbar_DOFnearBlur.Maximum = 10;
             this.tbar_DOFnearBlur.Name = "tbar_DOFnearBlur";
             this.tbar_DOFnearBlur.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFnearBlur.TabIndex = 57;
@@ -405,10 +413,13 @@
             this.tbar_DOFnearBlur.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFnearBlur.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFnearBlur.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFnearBlur.Value = 0;
+            this.tbar_DOFnearBlur.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFnearStart
             // 
             this.tbar_DOFnearStart.Location = new System.Drawing.Point(234, 331);
+            this.tbar_DOFnearStart.Maximum = 10000;
             this.tbar_DOFnearStart.Name = "tbar_DOFnearStart";
             this.tbar_DOFnearStart.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFnearStart.TabIndex = 56;
@@ -416,10 +427,12 @@
             this.tbar_DOFnearStart.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFnearStart.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFnearStart.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFnearStart.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFnearEnd
             // 
             this.tbar_DOFnearEnd.Location = new System.Drawing.Point(234, 361);
+            this.tbar_DOFnearEnd.Maximum = 30000;
             this.tbar_DOFnearEnd.Name = "tbar_DOFnearEnd";
             this.tbar_DOFnearEnd.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFnearEnd.TabIndex = 55;
@@ -427,10 +440,13 @@
             this.tbar_DOFnearEnd.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFnearEnd.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFnearEnd.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFnearEnd.Value = 0;
+            this.tbar_DOFnearEnd.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFfarBlur
             // 
             this.tbar_DOFfarBlur.Location = new System.Drawing.Point(234, 391);
+            this.tbar_DOFfarBlur.Maximum = 10;
             this.tbar_DOFfarBlur.Name = "tbar_DOFfarBlur";
             this.tbar_DOFfarBlur.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFfarBlur.TabIndex = 54;
@@ -438,10 +454,13 @@
             this.tbar_DOFfarBlur.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFfarBlur.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFfarBlur.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFfarBlur.Value = 0;
+            this.tbar_DOFfarBlur.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFfarStart
             // 
             this.tbar_DOFfarStart.Location = new System.Drawing.Point(234, 421);
+            this.tbar_DOFfarStart.Maximum = 10000;
             this.tbar_DOFfarStart.Name = "tbar_DOFfarStart";
             this.tbar_DOFfarStart.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFfarStart.TabIndex = 53;
@@ -449,10 +468,13 @@
             this.tbar_DOFfarStart.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFfarStart.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFfarStart.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFfarStart.Value = 0;
+            this.tbar_DOFfarStart.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFfarEnd
             // 
             this.tbar_DOFfarEnd.Location = new System.Drawing.Point(234, 451);
+            this.tbar_DOFfarEnd.Maximum = 30000;
             this.tbar_DOFfarEnd.Name = "tbar_DOFfarEnd";
             this.tbar_DOFfarEnd.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFfarEnd.TabIndex = 52;
@@ -460,6 +482,8 @@
             this.tbar_DOFfarEnd.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFfarEnd.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFfarEnd.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFfarEnd.Value = 0;
+            this.tbar_DOFfarEnd.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // lbl_DOFfarEnd
             // 
@@ -540,6 +564,7 @@
             this.tbar_DOFquality.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFquality.TrackPressedColor = System.Drawing.Color.White;
             this.tbar_DOFquality.Value = 1;
+            this.tbar_DOFquality.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // lbl_DOFquality
             // 
@@ -649,11 +674,95 @@
             this.lbl_valueFogFarExposure.Text = "1";
             this.lbl_valueFogFarExposure.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // lbl_valueDOFnearBlur
+            // 
+            this.lbl_valueDOFnearBlur.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFnearBlur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFnearBlur.Location = new System.Drawing.Point(140, 302);
+            this.lbl_valueDOFnearBlur.Name = "lbl_valueDOFnearBlur";
+            this.lbl_valueDOFnearBlur.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFnearBlur.TabIndex = 67;
+            this.lbl_valueDOFnearBlur.Text = "0";
+            this.lbl_valueDOFnearBlur.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_valueDOFnearStart
+            // 
+            this.lbl_valueDOFnearStart.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFnearStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFnearStart.Location = new System.Drawing.Point(140, 332);
+            this.lbl_valueDOFnearStart.Name = "lbl_valueDOFnearStart";
+            this.lbl_valueDOFnearStart.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFnearStart.TabIndex = 68;
+            this.lbl_valueDOFnearStart.Text = "0";
+            this.lbl_valueDOFnearStart.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_valueDOFnearEnd
+            // 
+            this.lbl_valueDOFnearEnd.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFnearEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFnearEnd.Location = new System.Drawing.Point(140, 362);
+            this.lbl_valueDOFnearEnd.Name = "lbl_valueDOFnearEnd";
+            this.lbl_valueDOFnearEnd.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFnearEnd.TabIndex = 69;
+            this.lbl_valueDOFnearEnd.Text = "0";
+            this.lbl_valueDOFnearEnd.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_valueDOFfarBlur
+            // 
+            this.lbl_valueDOFfarBlur.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFfarBlur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFfarBlur.Location = new System.Drawing.Point(140, 392);
+            this.lbl_valueDOFfarBlur.Name = "lbl_valueDOFfarBlur";
+            this.lbl_valueDOFfarBlur.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFfarBlur.TabIndex = 70;
+            this.lbl_valueDOFfarBlur.Text = "0";
+            this.lbl_valueDOFfarBlur.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_valueDOFfarStart
+            // 
+            this.lbl_valueDOFfarStart.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFfarStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFfarStart.Location = new System.Drawing.Point(140, 422);
+            this.lbl_valueDOFfarStart.Name = "lbl_valueDOFfarStart";
+            this.lbl_valueDOFfarStart.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFfarStart.TabIndex = 71;
+            this.lbl_valueDOFfarStart.Text = "0";
+            this.lbl_valueDOFfarStart.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_valueDOFfarEnd
+            // 
+            this.lbl_valueDOFfarEnd.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFfarEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFfarEnd.Location = new System.Drawing.Point(140, 452);
+            this.lbl_valueDOFfarEnd.Name = "lbl_valueDOFfarEnd";
+            this.lbl_valueDOFfarEnd.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFfarEnd.TabIndex = 72;
+            this.lbl_valueDOFfarEnd.Text = "0";
+            this.lbl_valueDOFfarEnd.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_valueDOFquality
+            // 
+            this.lbl_valueDOFquality.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valueDOFquality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(236)))), ((int)(((byte)(252)))));
+            this.lbl_valueDOFquality.Location = new System.Drawing.Point(140, 482);
+            this.lbl_valueDOFquality.Name = "lbl_valueDOFquality";
+            this.lbl_valueDOFquality.Size = new System.Drawing.Size(88, 23);
+            this.lbl_valueDOFquality.TabIndex = 73;
+            this.lbl_valueDOFquality.Text = "1";
+            this.lbl_valueDOFquality.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // uc_Fog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.lbl_valueDOFquality);
+            this.Controls.Add(this.lbl_valueDOFfarEnd);
+            this.Controls.Add(this.lbl_valueDOFfarStart);
+            this.Controls.Add(this.lbl_valueDOFfarBlur);
+            this.Controls.Add(this.lbl_valueDOFnearEnd);
+            this.Controls.Add(this.lbl_valueDOFnearStart);
+            this.Controls.Add(this.lbl_valueDOFnearBlur);
             this.Controls.Add(this.lbl_valueFogFarExposure);
             this.Controls.Add(this.lbl_valueFogBaseExposure);
             this.Controls.Add(this.lbl_valueFogBias);
@@ -755,5 +864,12 @@
         private Guna.UI.WinForms.GunaLabel lbl_valueFogBias;
         private Guna.UI.WinForms.GunaLabel lbl_valueFogBaseExposure;
         private Guna.UI.WinForms.GunaLabel lbl_valueFogFarExposure;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFnearBlur;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFnearStart;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFnearEnd;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFfarBlur;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFfarStart;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFfarEnd;
+        private Guna.UI.WinForms.GunaLabel lbl_valueDOFquality;
     }
 }
