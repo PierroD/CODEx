@@ -20,3 +20,16 @@
 #### v1.3.2 Small adds & Fixes
 - Add : BO1 game
 - Fix : BO2 was crashing while using CODEx
+
+#### v1.3.3 Fixes & Refactoring
+- Fix : BO2 external console is now 100% fonctionnal
+- Upd : External Console refactoring (-26 lines)
+- Upd : External Console use Trainer Class
+
+#### v1.4.3 Fog and DOF
+- Add : Fog and DOF tab (for BO2 Mp only ATM)
+
+#### v1.4.4 Add async method
+- Add : async to Fog and DOF 
+- Add : async to Search
+- Upd : updates is using markdown (looks better for you) 
