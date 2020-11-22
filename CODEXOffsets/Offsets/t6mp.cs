@@ -24,5 +24,13 @@ namespace CODEXOffsets.Offsets
         public int FogFarColorR { get { return 0x36434E8; } }
         public int FogFarColorG { get { return 0x36434F0; } }
         public int FogFarColorB { get { return 0x36434F4; } }
+
+        public int DOFfarBlur { get {return 0x2A3CA60; } }
+        public int DOFfarStart { get { return 0x2A3CC40; } }
+        public int DOFfarEnd{ get { return 0x2A3CCA0; } }
+        public int DOFnearBlur { get { return 0x2A3CA00; } }
+        public int DOFnearStart { get { return 0x2A3CB80; } }
+        public int DOFnearEnd { get { return 0x2A3CBE0; } }
+        public int DOFquality { get { return 0x2A3BE10; } }
     }
 }

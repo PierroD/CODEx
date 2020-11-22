@@ -382,6 +382,7 @@
             this.cbox_DOFenable.Name = "cbox_DOFenable";
             this.cbox_DOFenable.Size = new System.Drawing.Size(38, 20);
             this.cbox_DOFenable.TabIndex = 43;
+            this.cbox_DOFenable.CheckedChanged += new System.EventHandler(this.cbox_DOFenable_CheckedChanged);
             // 
             // gunaSeparator2
             // 
@@ -413,13 +414,13 @@
             this.tbar_DOFnearBlur.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFnearBlur.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFnearBlur.TrackPressedColor = System.Drawing.Color.White;
-            this.tbar_DOFnearBlur.Value = 0;
+            this.tbar_DOFnearBlur.Value = 6;
             this.tbar_DOFnearBlur.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFnearStart
             // 
             this.tbar_DOFnearStart.Location = new System.Drawing.Point(234, 331);
-            this.tbar_DOFnearStart.Maximum = 10000;
+            this.tbar_DOFnearStart.Maximum = 1000;
             this.tbar_DOFnearStart.Name = "tbar_DOFnearStart";
             this.tbar_DOFnearStart.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFnearStart.TabIndex = 56;
@@ -427,12 +428,13 @@
             this.tbar_DOFnearStart.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFnearStart.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFnearStart.TrackPressedColor = System.Drawing.Color.White;
+            this.tbar_DOFnearStart.Value = 10;
             this.tbar_DOFnearStart.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFnearEnd
             // 
             this.tbar_DOFnearEnd.Location = new System.Drawing.Point(234, 361);
-            this.tbar_DOFnearEnd.Maximum = 30000;
+            this.tbar_DOFnearEnd.Maximum = 120;
             this.tbar_DOFnearEnd.Name = "tbar_DOFnearEnd";
             this.tbar_DOFnearEnd.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFnearEnd.TabIndex = 55;
@@ -440,13 +442,13 @@
             this.tbar_DOFnearEnd.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFnearEnd.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFnearEnd.TrackPressedColor = System.Drawing.Color.White;
-            this.tbar_DOFnearEnd.Value = 0;
+            this.tbar_DOFnearEnd.Value = 60;
             this.tbar_DOFnearEnd.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFfarBlur
             // 
             this.tbar_DOFfarBlur.Location = new System.Drawing.Point(234, 391);
-            this.tbar_DOFfarBlur.Maximum = 10;
+            this.tbar_DOFfarBlur.Maximum = 360;
             this.tbar_DOFfarBlur.Name = "tbar_DOFfarBlur";
             this.tbar_DOFfarBlur.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFfarBlur.TabIndex = 54;
@@ -454,13 +456,13 @@
             this.tbar_DOFfarBlur.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFfarBlur.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFfarBlur.TrackPressedColor = System.Drawing.Color.White;
-            this.tbar_DOFfarBlur.Value = 0;
+            this.tbar_DOFfarBlur.Value = 180;
             this.tbar_DOFfarBlur.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFfarStart
             // 
             this.tbar_DOFfarStart.Location = new System.Drawing.Point(234, 421);
-            this.tbar_DOFfarStart.Maximum = 10000;
+            this.tbar_DOFfarStart.Maximum = 140;
             this.tbar_DOFfarStart.Name = "tbar_DOFfarStart";
             this.tbar_DOFfarStart.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFfarStart.TabIndex = 53;
@@ -468,13 +470,13 @@
             this.tbar_DOFfarStart.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFfarStart.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFfarStart.TrackPressedColor = System.Drawing.Color.White;
-            this.tbar_DOFfarStart.Value = 0;
+            this.tbar_DOFfarStart.Value = 70;
             this.tbar_DOFfarStart.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // tbar_DOFfarEnd
             // 
             this.tbar_DOFfarEnd.Location = new System.Drawing.Point(234, 451);
-            this.tbar_DOFfarEnd.Maximum = 30000;
+            this.tbar_DOFfarEnd.Maximum = 14000;
             this.tbar_DOFfarEnd.Name = "tbar_DOFfarEnd";
             this.tbar_DOFfarEnd.Size = new System.Drawing.Size(288, 23);
             this.tbar_DOFfarEnd.TabIndex = 52;
@@ -482,7 +484,7 @@
             this.tbar_DOFfarEnd.TrackHoverColor = System.Drawing.Color.DarkGray;
             this.tbar_DOFfarEnd.TrackIdleColor = System.Drawing.Color.Silver;
             this.tbar_DOFfarEnd.TrackPressedColor = System.Drawing.Color.White;
-            this.tbar_DOFfarEnd.Value = 0;
+            this.tbar_DOFfarEnd.Value = 7000;
             this.tbar_DOFfarEnd.ValueChanged += new System.EventHandler(this.dofTbars_ToLbls);
             // 
             // lbl_DOFfarEnd
@@ -682,7 +684,7 @@
             this.lbl_valueDOFnearBlur.Name = "lbl_valueDOFnearBlur";
             this.lbl_valueDOFnearBlur.Size = new System.Drawing.Size(88, 23);
             this.lbl_valueDOFnearBlur.TabIndex = 67;
-            this.lbl_valueDOFnearBlur.Text = "0";
+            this.lbl_valueDOFnearBlur.Text = "6";
             this.lbl_valueDOFnearBlur.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_valueDOFnearStart
@@ -693,7 +695,7 @@
             this.lbl_valueDOFnearStart.Name = "lbl_valueDOFnearStart";
             this.lbl_valueDOFnearStart.Size = new System.Drawing.Size(88, 23);
             this.lbl_valueDOFnearStart.TabIndex = 68;
-            this.lbl_valueDOFnearStart.Text = "0";
+            this.lbl_valueDOFnearStart.Text = "10";
             this.lbl_valueDOFnearStart.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_valueDOFnearEnd
@@ -704,7 +706,7 @@
             this.lbl_valueDOFnearEnd.Name = "lbl_valueDOFnearEnd";
             this.lbl_valueDOFnearEnd.Size = new System.Drawing.Size(88, 23);
             this.lbl_valueDOFnearEnd.TabIndex = 69;
-            this.lbl_valueDOFnearEnd.Text = "0";
+            this.lbl_valueDOFnearEnd.Text = "60";
             this.lbl_valueDOFnearEnd.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_valueDOFfarBlur
@@ -715,7 +717,7 @@
             this.lbl_valueDOFfarBlur.Name = "lbl_valueDOFfarBlur";
             this.lbl_valueDOFfarBlur.Size = new System.Drawing.Size(88, 23);
             this.lbl_valueDOFfarBlur.TabIndex = 70;
-            this.lbl_valueDOFfarBlur.Text = "0";
+            this.lbl_valueDOFfarBlur.Text = "1,80";
             this.lbl_valueDOFfarBlur.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_valueDOFfarStart
@@ -726,7 +728,7 @@
             this.lbl_valueDOFfarStart.Name = "lbl_valueDOFfarStart";
             this.lbl_valueDOFfarStart.Size = new System.Drawing.Size(88, 23);
             this.lbl_valueDOFfarStart.TabIndex = 71;
-            this.lbl_valueDOFfarStart.Text = "0";
+            this.lbl_valueDOFfarStart.Text = "70";
             this.lbl_valueDOFfarStart.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_valueDOFfarEnd
@@ -737,7 +739,7 @@
             this.lbl_valueDOFfarEnd.Name = "lbl_valueDOFfarEnd";
             this.lbl_valueDOFfarEnd.Size = new System.Drawing.Size(88, 23);
             this.lbl_valueDOFfarEnd.TabIndex = 72;
-            this.lbl_valueDOFfarEnd.Text = "0";
+            this.lbl_valueDOFfarEnd.Text = "7000";
             this.lbl_valueDOFfarEnd.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_valueDOFquality

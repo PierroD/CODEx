@@ -30,24 +30,24 @@ namespace CODEX.Views.Fog
             num_fogBlue.Value = (long)colorWheel_Fog.Color.B;
             if (rbtn_base.Checked)
             {
-                setFogValue("FogBaseColorR", num_fogRed.Value);
-                setFogValue("FogBaseColorG", num_fogGreen.Value);
-                setFogValue("FogBaseColorB", num_fogBlue.Value);
+                setFogAndDofValue("FogBaseColorR", num_fogRed.Value);
+                setFogAndDofValue("FogBaseColorG", num_fogGreen.Value);
+                setFogAndDofValue("FogBaseColorB", num_fogBlue.Value);
             }
             if (rbtn_far.Checked)
             {
-                setFogValue("FogFarColorR", num_fogRed.Value);
-                setFogValue("FogFarColorG", num_fogGreen.Value);
-                setFogValue("FogFarColorB", num_fogBlue.Value);
+                setFogAndDofValue("FogFarColorR", num_fogRed.Value);
+                setFogAndDofValue("FogFarColorG", num_fogGreen.Value);
+                setFogAndDofValue("FogFarColorB", num_fogBlue.Value);
             }
             if (rbtn_both.Checked)
             {
-                setFogValue("FogBaseColorR", num_fogRed.Value);
-                setFogValue("FogBaseColorG", num_fogGreen.Value);
-                setFogValue("FogBaseColorB", num_fogBlue.Value);
-                setFogValue("FogFarColorR", num_fogRed.Value);
-                setFogValue("FogFarColorG", num_fogGreen.Value);
-                setFogValue("FogFarColorB", num_fogBlue.Value);
+                setFogAndDofValue("FogBaseColorR", num_fogRed.Value);
+                setFogAndDofValue("FogBaseColorG", num_fogGreen.Value);
+                setFogAndDofValue("FogBaseColorB", num_fogBlue.Value);
+                setFogAndDofValue("FogFarColorR", num_fogRed.Value);
+                setFogAndDofValue("FogFarColorG", num_fogGreen.Value);
+                setFogAndDofValue("FogFarColorB", num_fogBlue.Value);
 
 
             }
@@ -67,28 +67,20 @@ namespace CODEX.Views.Fog
         {
             GunaTrackBar tbar = ((GunaTrackBar)sender);
             string option = tbar.Name.Substring(5);
-            switch (option)
+            if (option != "FogBias")
             {
-                case "FogBias":
-                    this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = (tbar.Value - 37).ToString();
-                    setFogValue(option, (tbar.Value - 37));
-                    break;
-                case "FogBaseExposure":
-                    this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = ((double)tbar.Value / 100).ToString();
-                    setFogValue(option, (tbar.Value / 100));
-                    break;
-                case "FogFarExposure":
-                    this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = ((double)tbar.Value / 100).ToString();
-                    setFogValue(option, (tbar.Value / 100));
-                    break;
-                default:
-                    this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = tbar.Value.ToString();
-                    setFogValue(option, tbar.Value);
-                    break;
+                this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = tbar.Value.ToString();
+                setFogAndDofValue(option, (tbar.Value / 100));
             }
+            else
+            {
+                this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = (tbar.Value - 37).ToString();
+                setFogAndDofValue(option, (tbar.Value - 37));
+            }
+
         }
 
-        private async void setFogValue(string address, float value)
+        private async void setFogAndDofValue(string address, float value)
         {
             await Task.Run(() =>
             {
@@ -106,7 +98,24 @@ namespace CODEX.Views.Fog
         {
             GunaTrackBar tbar = ((GunaTrackBar)sender);
             string option = tbar.Name.Substring(5);
+            if (option != "DOFfarBlur")
+            {
+                this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = ((double)tbar.Value).ToString();
+                setFogAndDofValue(option, tbar.Value);
+            }
+            else
+            {
+                this.Controls.Find($"lbl_value{option}", true).FirstOrDefault().Text = ((double)tbar.Value / 100).ToString();
+                setFogAndDofValue(option, (tbar.Value / 100));
+            }
+        }
 
+        private void cbox_DOFenable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbox_DOFenable.Checked)
+                ExternalConsole.Send("r_Dof_Tweak 1;r_Dof_Bias 1;r_Dof_Enable 1;");
+            else
+                ExternalConsole.Send("r_Dof_Tweak 0;r_Dof_Bias 0;r_Dof_Enable 0;");
         }
     }
 }
