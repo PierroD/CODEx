@@ -40,7 +40,7 @@ namespace CODEX
         }
 
 
-        UserControl home, search, settings;
+        UserControl home, fog, search, settings;
         private UserControl GetUserControlInstance(string buttonName)
         {
             switch (buttonName)
@@ -49,6 +49,10 @@ namespace CODEX
                     if (home == null)
                         home = CreateUserControl(buttonName);
                     return home;
+                case "Fog":
+                    if (fog == null)
+                        fog = CreateUserControl(buttonName);
+                    return fog;
                 case "Search":
                     if (search == null)
                         search = CreateUserControl(buttonName);

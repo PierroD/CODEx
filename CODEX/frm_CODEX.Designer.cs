@@ -32,36 +32,37 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_CODEX));
             this.CodexElipse = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pnl_left = new Guna.UI.WinForms.GunaLinePanel();
-            this.pbox_icon = new Guna.UI.WinForms.GunaPictureBox();
-            this.pbox_heart = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_byLINDRA = new Guna.UI.WinForms.GunaLabel();
             this.lbl_madeWith = new Guna.UI.WinForms.GunaLabel();
-            this.btn_Search = new Guna.UI.WinForms.GunaButton();
-            this.btn_Settings = new Guna.UI.WinForms.GunaButton();
-            this.btn_Home = new Guna.UI.WinForms.GunaButton();
             this.lbl_title = new Guna.UI.WinForms.GunaLabel();
             this.pnl_sidebar = new Guna.UI.WinForms.GunaGradient2Panel();
             this.pnl_topRight = new Guna.UI.WinForms.GunaElipsePanel();
-            this.pbox_show_notification = new Guna.UI.WinForms.GunaCirclePictureBox();
-            this.pbox_notification = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_minimize = new Guna.UI.WinForms.GunaControlBox();
             this.btn_close = new Guna.UI.WinForms.GunaControlBox();
             this.pnl_topMiddle = new Guna.UI.WinForms.GunaPanel();
             this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
-            this.pbox_top = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_top = new Guna.UI.WinForms.GunaLabel();
             this.drag_topMiddle = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.drag_topRight = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.drag_left = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.pnl_main = new Guna.UI.WinForms.GunaPanel();
+            this.pbox_show_notification = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.pbox_notification = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbox_top = new Guna.UI.WinForms.GunaPictureBox();
+            this.btn_Fog = new Guna.UI.WinForms.GunaButton();
+            this.pbox_icon = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbox_heart = new Guna.UI.WinForms.GunaPictureBox();
+            this.btn_Search = new Guna.UI.WinForms.GunaButton();
+            this.btn_Settings = new Guna.UI.WinForms.GunaButton();
+            this.btn_Home = new Guna.UI.WinForms.GunaButton();
             this.pnl_left.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_icon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).BeginInit();
             this.pnl_topRight.SuspendLayout();
+            this.pnl_topMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_notification)).BeginInit();
-            this.pnl_topMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_top)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_icon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).BeginInit();
             this.SuspendLayout();
             // 
             // CodexElipse
@@ -72,6 +73,7 @@
             // pnl_left
             // 
             this.pnl_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.pnl_left.Controls.Add(this.btn_Fog);
             this.pnl_left.Controls.Add(this.pbox_icon);
             this.pnl_left.Controls.Add(this.pbox_heart);
             this.pnl_left.Controls.Add(this.lbl_byLINDRA);
@@ -88,28 +90,6 @@
             this.pnl_left.Name = "pnl_left";
             this.pnl_left.Size = new System.Drawing.Size(220, 570);
             this.pnl_left.TabIndex = 1;
-            // 
-            // pbox_icon
-            // 
-            this.pbox_icon.BaseColor = System.Drawing.Color.White;
-            this.pbox_icon.Image = global::CODEX.Properties.Resources.CODEXLogo;
-            this.pbox_icon.Location = new System.Drawing.Point(60, 44);
-            this.pbox_icon.Name = "pbox_icon";
-            this.pbox_icon.Size = new System.Drawing.Size(100, 100);
-            this.pbox_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbox_icon.TabIndex = 20;
-            this.pbox_icon.TabStop = false;
-            // 
-            // pbox_heart
-            // 
-            this.pbox_heart.BaseColor = System.Drawing.Color.White;
-            this.pbox_heart.Image = global::CODEX.Properties.Resources.heart;
-            this.pbox_heart.Location = new System.Drawing.Point(95, 535);
-            this.pbox_heart.Name = "pbox_heart";
-            this.pbox_heart.Size = new System.Drawing.Size(20, 20);
-            this.pbox_heart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbox_heart.TabIndex = 19;
-            this.pbox_heart.TabStop = false;
             // 
             // lbl_byLINDRA
             // 
@@ -132,99 +112,6 @@
             this.lbl_madeWith.Size = new System.Drawing.Size(73, 17);
             this.lbl_madeWith.TabIndex = 17;
             this.lbl_madeWith.Text = "Made with";
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.AnimationHoverSpeed = 0.07F;
-            this.btn_Search.AnimationSpeed = 0.03F;
-            this.btn_Search.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Search.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btn_Search.BorderColor = System.Drawing.Color.Black;
-            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Search.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_Search.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_Search.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btn_Search.Image = global::CODEX.Properties.Resources.search_off;
-            this.btn_Search.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_Search.ImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Search.Location = new System.Drawing.Point(16, 260);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btn_Search.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_Search.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_Search.OnHoverImage = global::CODEX.Properties.Resources.search_on;
-            this.btn_Search.OnPressedColor = System.Drawing.Color.White;
-            this.btn_Search.OnPressedDepth = 5;
-            this.btn_Search.Radius = 13;
-            this.btn_Search.Size = new System.Drawing.Size(188, 50);
-            this.btn_Search.TabIndex = 15;
-            this.btn_Search.Text = "Search";
-            this.btn_Search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_Search.TextOffsetX = 14;
-            this.btn_Search.Click += new System.EventHandler(this.btns_SideBar_Click);
-            // 
-            // btn_Settings
-            // 
-            this.btn_Settings.AnimationHoverSpeed = 0.07F;
-            this.btn_Settings.AnimationSpeed = 0.03F;
-            this.btn_Settings.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Settings.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btn_Settings.BorderColor = System.Drawing.Color.Black;
-            this.btn_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Settings.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_Settings.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_Settings.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btn_Settings.Image = global::CODEX.Properties.Resources.settings_off;
-            this.btn_Settings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_Settings.ImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Settings.Location = new System.Drawing.Point(16, 320);
-            this.btn_Settings.Name = "btn_Settings";
-            this.btn_Settings.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btn_Settings.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_Settings.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_Settings.OnHoverImage = global::CODEX.Properties.Resources.settings_on;
-            this.btn_Settings.OnPressedColor = System.Drawing.Color.White;
-            this.btn_Settings.OnPressedDepth = 5;
-            this.btn_Settings.Radius = 13;
-            this.btn_Settings.Size = new System.Drawing.Size(188, 50);
-            this.btn_Settings.TabIndex = 14;
-            this.btn_Settings.Text = "Settings";
-            this.btn_Settings.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_Settings.TextOffsetX = 14;
-            this.btn_Settings.Click += new System.EventHandler(this.btns_SideBar_Click);
-            // 
-            // btn_Home
-            // 
-            this.btn_Home.AnimationHoverSpeed = 0.07F;
-            this.btn_Home.AnimationSpeed = 0.03F;
-            this.btn_Home.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Home.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btn_Home.BorderColor = System.Drawing.Color.Black;
-            this.btn_Home.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Home.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_Home.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_Home.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_Home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btn_Home.Image = global::CODEX.Properties.Resources.home_off;
-            this.btn_Home.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_Home.ImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Home.Location = new System.Drawing.Point(16, 200);
-            this.btn_Home.Name = "btn_Home";
-            this.btn_Home.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btn_Home.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_Home.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_Home.OnHoverImage = global::CODEX.Properties.Resources.home_on;
-            this.btn_Home.OnPressedColor = System.Drawing.Color.White;
-            this.btn_Home.OnPressedDepth = 5;
-            this.btn_Home.Radius = 13;
-            this.btn_Home.Size = new System.Drawing.Size(188, 50);
-            this.btn_Home.TabIndex = 13;
-            this.btn_Home.Text = "Home";
-            this.btn_Home.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_Home.TextOffsetX = 14;
-            this.btn_Home.Click += new System.EventHandler(this.btns_SideBar_Click);
             // 
             // lbl_title
             // 
@@ -262,34 +149,6 @@
             this.pnl_topRight.Radius = 50;
             this.pnl_topRight.Size = new System.Drawing.Size(304, 100);
             this.pnl_topRight.TabIndex = 2;
-            // 
-            // pbox_show_notification
-            // 
-            this.pbox_show_notification.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
-            this.pbox_show_notification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbox_show_notification.Location = new System.Drawing.Point(79, 56);
-            this.pbox_show_notification.Name = "pbox_show_notification";
-            this.pbox_show_notification.Size = new System.Drawing.Size(10, 10);
-            this.pbox_show_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbox_show_notification.TabIndex = 3;
-            this.pbox_show_notification.TabStop = false;
-            this.pbox_show_notification.UseTransfarantBackground = false;
-            this.pbox_show_notification.Visible = false;
-            this.pbox_show_notification.Click += new System.EventHandler(this.pbox_notification_Click);
-            // 
-            // pbox_notification
-            // 
-            this.pbox_notification.BaseColor = System.Drawing.Color.White;
-            this.pbox_notification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbox_notification.Image = global::CODEX.Properties.Resources.notification;
-            this.pbox_notification.Location = new System.Drawing.Point(65, 60);
-            this.pbox_notification.Name = "pbox_notification";
-            this.pbox_notification.Size = new System.Drawing.Size(20, 20);
-            this.pbox_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbox_notification.TabIndex = 2;
-            this.pbox_notification.TabStop = false;
-            this.pbox_notification.Visible = false;
-            this.pbox_notification.Click += new System.EventHandler(this.pbox_notification_Click);
             // 
             // btn_minimize
             // 
@@ -343,16 +202,6 @@
             this.gunaGradient2Panel1.Size = new System.Drawing.Size(120, 4);
             this.gunaGradient2Panel1.TabIndex = 17;
             // 
-            // pbox_top
-            // 
-            this.pbox_top.BaseColor = System.Drawing.Color.White;
-            this.pbox_top.Image = global::CODEX.Properties.Resources.home_off;
-            this.pbox_top.Location = new System.Drawing.Point(18, 11);
-            this.pbox_top.Name = "pbox_top";
-            this.pbox_top.Size = new System.Drawing.Size(30, 30);
-            this.pbox_top.TabIndex = 6;
-            this.pbox_top.TabStop = false;
-            // 
             // lbl_top
             // 
             this.lbl_top.AutoSize = true;
@@ -383,6 +232,190 @@
             this.pnl_main.Size = new System.Drawing.Size(751, 512);
             this.pnl_main.TabIndex = 4;
             // 
+            // pbox_show_notification
+            // 
+            this.pbox_show_notification.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(113)))), ((int)(((byte)(255)))));
+            this.pbox_show_notification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbox_show_notification.Location = new System.Drawing.Point(79, 56);
+            this.pbox_show_notification.Name = "pbox_show_notification";
+            this.pbox_show_notification.Size = new System.Drawing.Size(10, 10);
+            this.pbox_show_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbox_show_notification.TabIndex = 3;
+            this.pbox_show_notification.TabStop = false;
+            this.pbox_show_notification.UseTransfarantBackground = false;
+            this.pbox_show_notification.Visible = false;
+            this.pbox_show_notification.Click += new System.EventHandler(this.pbox_notification_Click);
+            // 
+            // pbox_notification
+            // 
+            this.pbox_notification.BaseColor = System.Drawing.Color.White;
+            this.pbox_notification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbox_notification.Image = global::CODEX.Properties.Resources.notification;
+            this.pbox_notification.Location = new System.Drawing.Point(65, 60);
+            this.pbox_notification.Name = "pbox_notification";
+            this.pbox_notification.Size = new System.Drawing.Size(20, 20);
+            this.pbox_notification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_notification.TabIndex = 2;
+            this.pbox_notification.TabStop = false;
+            this.pbox_notification.Visible = false;
+            this.pbox_notification.Click += new System.EventHandler(this.pbox_notification_Click);
+            // 
+            // pbox_top
+            // 
+            this.pbox_top.BaseColor = System.Drawing.Color.White;
+            this.pbox_top.Image = global::CODEX.Properties.Resources.home_off;
+            this.pbox_top.Location = new System.Drawing.Point(18, 11);
+            this.pbox_top.Name = "pbox_top";
+            this.pbox_top.Size = new System.Drawing.Size(30, 30);
+            this.pbox_top.TabIndex = 6;
+            this.pbox_top.TabStop = false;
+            // 
+            // btn_Fog
+            // 
+            this.btn_Fog.AnimationHoverSpeed = 0.07F;
+            this.btn_Fog.AnimationSpeed = 0.03F;
+            this.btn_Fog.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Fog.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Fog.BorderColor = System.Drawing.Color.Black;
+            this.btn_Fog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Fog.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Fog.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Fog.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_Fog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_Fog.Image = global::CODEX.Properties.Resources.fog_off;
+            this.btn_Fog.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Fog.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Fog.Location = new System.Drawing.Point(16, 260);
+            this.btn_Fog.Name = "btn_Fog";
+            this.btn_Fog.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Fog.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Fog.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Fog.OnHoverImage = global::CODEX.Properties.Resources.fog_on;
+            this.btn_Fog.OnPressedColor = System.Drawing.Color.White;
+            this.btn_Fog.OnPressedDepth = 5;
+            this.btn_Fog.Radius = 13;
+            this.btn_Fog.Size = new System.Drawing.Size(188, 50);
+            this.btn_Fog.TabIndex = 21;
+            this.btn_Fog.Text = "Fog";
+            this.btn_Fog.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Fog.TextOffsetX = 14;
+            this.btn_Fog.Click += new System.EventHandler(this.btns_SideBar_Click);
+            // 
+            // pbox_icon
+            // 
+            this.pbox_icon.BaseColor = System.Drawing.Color.White;
+            this.pbox_icon.Image = global::CODEX.Properties.Resources.CODEXLogo;
+            this.pbox_icon.Location = new System.Drawing.Point(60, 44);
+            this.pbox_icon.Name = "pbox_icon";
+            this.pbox_icon.Size = new System.Drawing.Size(100, 100);
+            this.pbox_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_icon.TabIndex = 20;
+            this.pbox_icon.TabStop = false;
+            // 
+            // pbox_heart
+            // 
+            this.pbox_heart.BaseColor = System.Drawing.Color.White;
+            this.pbox_heart.Image = global::CODEX.Properties.Resources.heart;
+            this.pbox_heart.Location = new System.Drawing.Point(95, 535);
+            this.pbox_heart.Name = "pbox_heart";
+            this.pbox_heart.Size = new System.Drawing.Size(20, 20);
+            this.pbox_heart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_heart.TabIndex = 19;
+            this.pbox_heart.TabStop = false;
+            // 
+            // btn_Search
+            // 
+            this.btn_Search.AnimationHoverSpeed = 0.07F;
+            this.btn_Search.AnimationSpeed = 0.03F;
+            this.btn_Search.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Search.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Search.BorderColor = System.Drawing.Color.Black;
+            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Search.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Search.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Search.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_Search.Image = global::CODEX.Properties.Resources.search_off;
+            this.btn_Search.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Search.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Search.Location = new System.Drawing.Point(16, 320);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Search.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Search.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Search.OnHoverImage = global::CODEX.Properties.Resources.search_on;
+            this.btn_Search.OnPressedColor = System.Drawing.Color.White;
+            this.btn_Search.OnPressedDepth = 5;
+            this.btn_Search.Radius = 13;
+            this.btn_Search.Size = new System.Drawing.Size(188, 50);
+            this.btn_Search.TabIndex = 15;
+            this.btn_Search.Text = "Search";
+            this.btn_Search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Search.TextOffsetX = 14;
+            this.btn_Search.Click += new System.EventHandler(this.btns_SideBar_Click);
+            // 
+            // btn_Settings
+            // 
+            this.btn_Settings.AnimationHoverSpeed = 0.07F;
+            this.btn_Settings.AnimationSpeed = 0.03F;
+            this.btn_Settings.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Settings.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Settings.BorderColor = System.Drawing.Color.Black;
+            this.btn_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Settings.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Settings.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Settings.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_Settings.Image = global::CODEX.Properties.Resources.settings_off;
+            this.btn_Settings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Settings.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Settings.Location = new System.Drawing.Point(16, 380);
+            this.btn_Settings.Name = "btn_Settings";
+            this.btn_Settings.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Settings.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Settings.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Settings.OnHoverImage = global::CODEX.Properties.Resources.settings_on;
+            this.btn_Settings.OnPressedColor = System.Drawing.Color.White;
+            this.btn_Settings.OnPressedDepth = 5;
+            this.btn_Settings.Radius = 13;
+            this.btn_Settings.Size = new System.Drawing.Size(188, 50);
+            this.btn_Settings.TabIndex = 14;
+            this.btn_Settings.Text = "Settings";
+            this.btn_Settings.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Settings.TextOffsetX = 14;
+            this.btn_Settings.Click += new System.EventHandler(this.btns_SideBar_Click);
+            // 
+            // btn_Home
+            // 
+            this.btn_Home.AnimationHoverSpeed = 0.07F;
+            this.btn_Home.AnimationSpeed = 0.03F;
+            this.btn_Home.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Home.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Home.BorderColor = System.Drawing.Color.Black;
+            this.btn_Home.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Home.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Home.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Home.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_Home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btn_Home.Image = global::CODEX.Properties.Resources.home_off;
+            this.btn_Home.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Home.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Home.Location = new System.Drawing.Point(16, 200);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btn_Home.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Home.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Home.OnHoverImage = global::CODEX.Properties.Resources.home_on;
+            this.btn_Home.OnPressedColor = System.Drawing.Color.White;
+            this.btn_Home.OnPressedDepth = 5;
+            this.btn_Home.Radius = 13;
+            this.btn_Home.Size = new System.Drawing.Size(188, 50);
+            this.btn_Home.TabIndex = 13;
+            this.btn_Home.Text = "Home";
+            this.btn_Home.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Home.TextOffsetX = 14;
+            this.btn_Home.Click += new System.EventHandler(this.btns_SideBar_Click);
+            // 
             // frm_CODEX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,14 +434,14 @@
             this.Load += new System.EventHandler(this.CODEX_Load);
             this.pnl_left.ResumeLayout(false);
             this.pnl_left.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).EndInit();
             this.pnl_topRight.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_notification)).EndInit();
             this.pnl_topMiddle.ResumeLayout(false);
             this.pnl_topMiddle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_show_notification)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_notification)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_top)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_heart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -439,6 +472,7 @@
         private Guna.UI.WinForms.GunaPictureBox pbox_icon;
         private Guna.UI.WinForms.GunaPictureBox pbox_notification;
         private Guna.UI.WinForms.GunaCirclePictureBox pbox_show_notification;
+        private Guna.UI.WinForms.GunaButton btn_Fog;
     }
 }
 

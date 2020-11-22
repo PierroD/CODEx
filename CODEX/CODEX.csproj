@@ -40,12 +40,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CODEXOffsets\bin\Release\netstandard2.0\CODEXOffsets.dll</HintPath>
     </Reference>
+    <Reference Include="Cyotek.Windows.Forms.ColorPicker, Version=1.0.1.1, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Cyotek.Windows.Forms.ColorPicker.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\Light\Downloads\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Markdig, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Markdig.0.22.0\lib\net452\Markdig.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -54,6 +59,8 @@
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -83,7 +90,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\ExternalConsole - Copy.cs" />
     <Compile Include="Utils\ExternalConsole.cs" />
     <Compile Include="Utils\INIFile.cs" />
     <Compile Include="Utils\LoadingAnimation.cs" />
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="Utils\SwitchUserControl.cs" />
     <Compile Include="Utils\Trainer.cs" />
+    <Compile Include="Views\Fog\uc_Fog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Fog\uc_Fog.Designer.cs">
+      <DependentUpon>uc_Fog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\MacroModel\uc_Macro.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +152,9 @@
     </Compile>
     <EmbeddedResource Include="Utils\Loading\uc_Loading.resx">
       <DependentUpon>uc_Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Fog\uc_Fog.resx">
+      <DependentUpon>uc_Fog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\MacroModel\uc_Macro.resx">
       <DependentUpon>uc_Macro.cs</DependentUpon>
@@ -223,6 +238,8 @@
   <ItemGroup>
     <Content Include="CODEXIcon.ico" />
     <Content Include="CODEXLogo_1.ico" />
+    <None Include="Resources\fog_on.png" />
+    <None Include="Resources\fog_off.png" />
     <None Include="Resources\notification.png" />
     <None Include="Resources\CODEXLogo.png" />
   </ItemGroup>
