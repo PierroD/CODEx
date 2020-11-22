@@ -97,20 +97,23 @@ namespace CODEX.Views.Search
         #endregion
 
         #region SearchDvars
-        void SearchDvars(string dvar)
+        async void SearchDvars(string dvar)
         {
             pnl_dvars.Controls.Clear();
             Game game = DvarLists.Games.Where(g => g.GameName == cbox_SelectedDvarList.Text).FirstOrDefault();
             List<Command> commands = game.Commands.Where(c => c.Content.Contains(dvar) || c.Description.Contains(dvar)).ToList();
             List<uc_SearchModel> searchResult = new List<uc_SearchModel>();
-            foreach (Command command in commands)
+            await Task.Run(() =>
             {
-                searchResult.Add(new uc_SearchModel
+                foreach (Command command in commands)
                 {
-                    dvarName = command.Content,
-                    dvarDescription = command.Description
-                });
-            }
+                    searchResult.Add(new uc_SearchModel
+                    {
+                        dvarName = command.Content,
+                        dvarDescription = command.Description
+                    });
+                }
+            });
             pnl_dvars.SuspendLayout();
             pnl_dvars.Controls.AddRange(searchResult.ToArray());
             pnl_dvars.ResumeLayout();

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Fog));
             this.lbl_fogStart = new Guna.UI.WinForms.GunaLabel();
             this.lbl_fogFade = new Guna.UI.WinForms.GunaLabel();
             this.lbl_fogHeight = new Guna.UI.WinForms.GunaLabel();
@@ -81,6 +83,7 @@
             this.lbl_valueDOFfarStart = new Guna.UI.WinForms.GunaLabel();
             this.lbl_valueDOFfarEnd = new Guna.UI.WinForms.GunaLabel();
             this.lbl_valueDOFquality = new Guna.UI.WinForms.GunaLabel();
+            this.ni_foganddof = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // lbl_fogStart
@@ -609,6 +612,7 @@
             this.btn_copyToClipboard.TabIndex = 60;
             this.btn_copyToClipboard.Text = "Copy to clipboard";
             this.btn_copyToClipboard.TextOffsetX = 5;
+            this.btn_copyToClipboard.Click += new System.EventHandler(this.btn_copyToClipboard_Click);
             // 
             // lbl_valueFogStart
             // 
@@ -753,6 +757,12 @@
             this.lbl_valueDOFquality.Text = "1";
             this.lbl_valueDOFquality.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // ni_foganddof
+            // 
+            this.ni_foganddof.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ni_foganddof.Icon = ((System.Drawing.Icon)(resources.GetObject("ni_foganddof.Icon")));
+            this.ni_foganddof.Text = "CODEx";
+            // 
             // uc_Fog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -873,5 +883,6 @@
         private Guna.UI.WinForms.GunaLabel lbl_valueDOFfarStart;
         private Guna.UI.WinForms.GunaLabel lbl_valueDOFfarEnd;
         private Guna.UI.WinForms.GunaLabel lbl_valueDOFquality;
+        private System.Windows.Forms.NotifyIcon ni_foganddof;
     }
 }

@@ -52,7 +52,11 @@ namespace CODEX.Views.Fog
 
             }
         }
-
+        /// <summary>
+        /// Fixe the white color was equals to 127;127;127
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void whiteColorFixe(object sender, EventArgs e)
         {
             if (num_fogRed.Value == 127 && num_fogGreen.Value == 127 && num_fogBlue.Value == 127)
@@ -63,6 +67,11 @@ namespace CODEX.Views.Fog
             }
         }
 
+        /// <summary>
+        /// Generic way to set a trackbar.value to a label text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fogTbars_ToLbls(object sender, EventArgs e)
         {
             GunaTrackBar tbar = ((GunaTrackBar)sender);
@@ -80,20 +89,14 @@ namespace CODEX.Views.Fog
 
         }
 
-        private async void setFogAndDofValue(string address, float value)
-        {
-            await Task.Run(() =>
-            {
-                if (COD.checkGame() && COD.GameName() == "t6mp")
-                {
-                    dynamic cod = COD.Game();
-                    t.Process_Handle(COD.GameName());
-                    t.WriteFloat(cod.GetType().GetProperty(address).GetValue(cod), value);
-                }
-            });
-        }
-        #endregion
 
+        #endregion
+        #region DOF (Depth of Field)
+        /// <summary>
+        /// Generic way to set a trackbar.value to a label text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dofTbars_ToLbls(object sender, EventArgs e)
         {
             GunaTrackBar tbar = ((GunaTrackBar)sender);
@@ -117,5 +120,56 @@ namespace CODEX.Views.Fog
             else
                 ExternalConsole.Send("r_Dof_Tweak 0;r_Dof_Bias 0;r_Dof_Enable 0;");
         }
+
+        private void btn_copyToClipboard_Click(object sender, EventArgs e)
+        {
+            string commands = "r_Dof_Tweak 1;\nr_Dof_Bias 1;\nr_Dof_Enable 1;";
+            commands += $"r_Dof_NearBlur {tbar_DOFnearBlur.Value};\n";
+            commands += $"r_Dof_NearStart {tbar_DOFnearStart.Value};\n";
+            commands += $"r_Dof_NearEnd {tbar_DOFnearEnd.Value};\n";
+            commands += $"r_Dof_FarBlur {tbar_DOFfarBlur.Value};\n";
+            commands += $"r_Dof_FarStart {tbar_DOFfarStart.Value};\n";
+            commands += $"r_Dof_FarEnd {tbar_DOFfarEnd.Value};\n";
+            Clipboard.SetText(commands);
+            Notify($"Depth of field sttings has been copied to the clipboard", "CODEx", "Copied DVAR to the clipboard");
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Generic way to send data to a COD (async to not make the ui laggy)
+        /// </summary>
+        /// <param name="address"></param>
+        /// <param name="value"></param>
+        private async void setFogAndDofValue(string address, float value)
+        {
+            await Task.Run(() =>
+            {
+                if (COD.checkGame() && COD.GameName() == "t6mp")
+                {
+                    dynamic cod = COD.Game();
+                    t.Process_Handle(COD.GameName());
+                    t.WriteFloat(cod.GetType().GetProperty(address).GetValue(cod), value);
+                }
+            });
+        }
+
+        #region Notify
+        /// <summary>
+        /// Notify Icon, to inform the user
+        /// </summary>
+        /// <param name="tipText"></param>
+        /// <param name="mainText"></param>
+        /// <param name="tipTitle"></param>
+        void Notify(string tipText, string mainText, string tipTitle)
+        {
+            ni_foganddof.BalloonTipText = tipText;
+            ni_foganddof.Text = mainText;
+            ni_foganddof.BalloonTipTitle = tipTitle;
+            ni_foganddof.Visible = true;
+            ni_foganddof.ShowBalloonTip(1000, tipTitle, tipText, ToolTipIcon.Info);
+            ni_foganddof.Visible = false;
+        }
+        #endregion
     }
 }
