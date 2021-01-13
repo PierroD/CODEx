@@ -75,7 +75,7 @@ CODEx has been designed to be personalized according to your needs.
 
 - To get CODEx on your desktop you can create a shortcut (in the **Settings** tab)
 - CODEx can detect automatically which Call of Duty Multiplayer game is running (MW2, MW3, BO2)
-- You can choose were your personnal configs will be saved (by default they will be saved in your `Documents`)
+- You can choose where your personnal configs will be saved (by default they will be saved in your `Documents`)
 - You can add a macro to the config, so you will be able to call it in-game
 - You can search in a customizable DVAR list, all Call of Duty DVAR
 - You can copy a DVAR to the clipboard by simply press the copy button
