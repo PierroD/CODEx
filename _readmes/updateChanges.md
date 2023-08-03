@@ -33,3 +33,6 @@
 - Add : async to Fog and DOF 
 - Add : async to Search
 - Upd : updates is using markdown (looks better for you) 
+
+#### v1.4.5 Update MW2 Offsets
+- Upd : update MW2 Offsets
