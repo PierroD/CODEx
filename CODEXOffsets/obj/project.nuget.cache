@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7NFJgJ/vuTk7xhOBoKjMMvWIKcOkOm94MhBZeLo7p3w9BlzdXglCo0neeNdJPdP+9jgx184sYi2VLIs2y7bNKg==",
+  "dgSpecHash": "XllhLZC//eyZaNuOPnWPNMF1h5X7zvOrzM5NqaoB8TTxHkP3qlhloQ0Rfyz/H2doneYrEURuwqmfH4eW/K7OYA==",
   "success": true,
   "projectFilePath": "D:\\Develop\\Projets\\perso\\CODEx\\CODEXOffsets\\CODEXOffsets.csproj",
   "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Light\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Light\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
